@@ -1,0 +1,13 @@
+:root {
+    --pixel-green: #4ade80;
+    --pixel-green-dark: #22c55e;
+    --pixel-green-light: #6ee7b7;
+    --pixel-gray-900: #1f2937;
+    --pixel-gray-800: #374151;
+    --pixel-gray-300: #d1d5db;
+    --pixel-gray-400: #9ca3af;
+    
+    --pixel-border: 2px solid var(--pixel-green);
+    --pixel-font: 'Courier New', monospace;
+    --pixel-spacing: 8px;
+  }

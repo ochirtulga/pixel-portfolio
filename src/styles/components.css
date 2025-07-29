@@ -1,0 +1,66 @@
+.pixel-border {
+    border: var(--pixel-border);
+    image-rendering: pixelated;
+  }
+  
+  .pixel-glow {
+    text-shadow: 0 0 10px var(--pixel-green), 
+                 0 0 20px var(--pixel-green), 
+                 0 0 30px var(--pixel-green);
+  }
+  
+  .pixel-button {
+    border: var(--pixel-border);
+    padding: var(--pixel-spacing) calc(var(--pixel-spacing) * 2);
+    font-family: var(--pixel-font);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    user-select: none;
+    image-rendering: pixelated;
+    touch-action: manipulation;
+    text-transform: uppercase;
+    transition: none;
+  }
+  
+  .pixel-button--active {
+    background-color: var(--pixel-green);
+    color: var(--pixel-gray-900);
+    border-color: var(--pixel-green-dark);
+  }
+  
+  .pixel-button--inactive {
+    background-color: var(--pixel-gray-900);
+    color: var(--pixel-green);
+    border-color: var(--pixel-green);
+  }
+  
+  .pixel-button--hover {
+    background-color: var(--pixel-green-dark);
+    color: var(--pixel-gray-900);
+  }
+  
+  .health-bar {
+    width: 128px;
+    height: 16px;
+    background-color: var(--pixel-gray-800);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .health-bar__fill {
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+  
+  .health-bar__text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pixel-gray-900);
+    font-weight: bold;
+    font-size: 12px;
+  }
