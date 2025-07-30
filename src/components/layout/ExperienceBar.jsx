@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { calculateExperienceData } from '../../data/characterConfig';
 
 const ExperienceBar = () => {
   const [experienceData, setExperienceData] = useState({ 
@@ -10,46 +11,16 @@ const ExperienceBar = () => {
 
   // Calculate experience based on birthday progress
   useEffect(() => {
-    const calculateExperience = () => {
-      const today = new Date();
-      const currentYear = today.getFullYear();
-      
-      // Set your birthday here (month is 0-indexed, so January = 0, December = 11)
-      const birthday = new Date(currentYear, 4, 19);
-      const birthYear = 1998; 
-      
-      // If birthday has passed this year, calculate for next year
-      if (today > birthday) {
-        birthday.setFullYear(currentYear + 1);
-      }
-      
-      // Calculate last birthday
-      const lastBirthday = new Date(birthday);
-      lastBirthday.setFullYear(birthday.getFullYear() - 1);
-      
-      // Calculate progress
-      const totalDaysInYear = Math.ceil((birthday - lastBirthday) / (1000 * 60 * 60 * 24));
-      const daysPassed = Math.ceil((today - lastBirthday) / (1000 * 60 * 60 * 24));
-      const daysUntilBirthday = Math.ceil((birthday - today) / (1000 * 60 * 60 * 24));
-      
-      const percentage = Math.min((daysPassed / totalDaysInYear) * 100, 100);
-      
-      // Calculate current age and next level
-      const currentAge = currentYear - birthYear;
-      const nextLevel = currentAge + 1;
-      
-      setExperienceData({
-        percentage: percentage,
-        daysUntilBirthday: daysUntilBirthday,
-        currentAge: currentAge,
-        nextLevel: nextLevel
-      });
+    const updateExperienceData = () => {
+      const data = calculateExperienceData();
+      setExperienceData(data);
     };
 
-    calculateExperience();
+    // Initial calculation
+    updateExperienceData();
     
     // Update every hour
-    const interval = setInterval(calculateExperience, 1000 * 60 * 60);
+    const interval = setInterval(updateExperienceData, 1000 * 60 * 60);
     
     return () => clearInterval(interval);
   }, []);

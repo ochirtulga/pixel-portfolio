@@ -60,7 +60,7 @@ const ContactPage = () => {
   const handleSocialClick = (platform) => {
     const socialLinks = {
       github: 'https://github.com/ochirtulga',
-      linkedin: 'https://linkedin.com/in/ochirtulga-namjim',
+      linkedin: 'https://linkedin.com/in/ochirtulga',
       instagram: 'https://instagram.com/_ochrono_',
       leetcode: 'https://leetcode.com/ochirtulga'
     };

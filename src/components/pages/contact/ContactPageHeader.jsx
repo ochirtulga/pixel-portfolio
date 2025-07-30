@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPageHeader = ({ 
   title = "NPC INTERACTION TERMINAL",
-  subtitle = "Initiate dialogue sequence with Developer Ochi to begin your quest.",
+  subtitle = "Initiate dialogue sequence with Adventurer Ochi to begin your quest.",
   characterEmoji = "👨‍💻"
 }) => {
   return (
