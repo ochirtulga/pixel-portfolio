@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { skillCategories } from '../../data/skillData';
-import SkillNode from './SkillNode';
-import SkillDetailPanel from './SkillDetailPanel';
+import SkillNode from './skills/SkillNode';
+import SkillDetailPanel from './skills/SkillDetailPanel';
 
 const SkillsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('fundamentals');
