@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import ContactPageHeader from './contact/ContactPageHeader';
-import DialogueSystem from './contact/DialogueSystem';
-import QuestForm from './contact/QuestForm';
-import QuickConnectPanel from './contact/QuickConnectPanel';
-import CharacterStatusPanel from './contact/CharacterStatusPanel';
-import QuestTypesPanel from './contact/QuestTypesPanel';
+import {
+  ContactPageHeader,
+  DialogueSystem,
+  QuestForm,
+  QuickConnectPanel,
+  CharacterStatusPanel,
+  QuestTypesPanel
+} from './contact';
 import { dialogueTreeData } from '../../data/dialogueTree';
 
 const ContactPage = () => {

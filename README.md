@@ -20,9 +20,10 @@ This project transforms a traditional developer portfolio into an immersive gami
 
 ### 🎮 **Interactive Elements**
 - **Character Navigation** - Portfolio sections as game "pages"
-- **Skill Trees** - Technical skills displayed as RPG character abilities
-- **Quest System** - Projects presented as completed gaming quests
-- **Status Bars** - Health/Mana displays for authentic gaming feel
+- **Skill Trees** - Technical skills displayed as RPG character abilities with difficulty tiers
+- **Quest System** - Projects presented as completed gaming quests with RPG elements
+- **Dialogue System** - Interactive contact form with NPC-style conversations
+- **Experience Bar** - Real-time birthday countdown as level progression
 
 ### 🛠️ **Technical Features**
 - **Modular Architecture** - Clean component separation and organization
@@ -42,16 +43,27 @@ src/
 │   │
 │   ├── pages/                  # Main Portfolio Sections
 │   │   ├── HomePage.jsx        # Welcome/landing page
-│   │   ├── AboutPage.jsx       # Character info and backstory
-│   │   ├── ProjectsPage.jsx    # Project showcase
-│   │   ├── SkillsPage.jsx      # Technical skills display
-│   │   ├── ContactPage.jsx     # Contact form and social links
+│   │   ├── AboutPage.jsx       # Character info with typing animation
+│   │   ├── QuestsPage.jsx      # Project showcase (renamed from ProjectsPage)
+│   │   ├── SkillsPage.jsx      # Skill grimoire with tier system
+│   │   ├── ContactPage.jsx     # NPC dialogue system
+│   │   ├── contact/            # Contact page sub-components
+│   │   │   ├── ContactPageHeader.jsx
+│   │   │   ├── DialogueSystem.jsx
+│   │   │   ├── QuestForm.jsx
+│   │   │   ├── QuickConnectPanel.jsx
+│   │   │   ├── CharacterStatusPanel.jsx
+│   │   │   └── QuestTypesPanel.jsx
+│   │   ├── skills/             # Skills page sub-components
+│   │   │   ├── SkillNode.jsx
+│   │   │   └── SkillDetailPanel.jsx
 │   │   └── index.js            # Page exports
 │   │
 │   └── layout/                 # Layout & Background Components
 │       ├── Navigation.jsx      # Main navigation bar
 │       ├── Background.jsx      # Animated background elements
 │       ├── HealthManaDisplay.jsx # Fixed position status bars
+│       ├── ExperienceBar.jsx   # Bottom experience/birthday bar
 │       └── index.js            # Layout exports
 │
 ├── styles/                     # Organized CSS Architecture
@@ -62,10 +74,11 @@ src/
 │
 ├── data/                       # Static Data Management
 │   ├── projects.js             # Project information
-│   ├── skills.js               # Technical skills and levels
-│   └── navItems.js             # Navigation configuration
+│   ├── skillData.js            # Comprehensive skill categories and tiers
+│   ├── navItems.js             # Navigation configuration
+│   └── dialogueTree.js         # Contact dialogue system data
 │
-└── App.jsx                     # Main application component
+└── App.js                      # Main application component
 ```
 
 ## 🧩 Component Architecture
@@ -74,28 +87,30 @@ src/
 
 #### `HomePage.jsx`
 - **Purpose**: Landing page with character introduction
-- **Features**: Animated welcome message, navigation shortcuts
+- **Features**: Animated welcome message, navigation shortcuts, dynamic level calculation
 - **Props**: `onNavigate` - function to handle page navigation
 
 #### `AboutPage.jsx`
 - **Purpose**: Character backstory and professional stats
-- **Features**: Experience points, APIs deployed, uptime statistics
-- **Layout**: Two-column grid with stats and narrative
+- **Features**: Typing animation for backstory, dynamic level calculation, achievement cards
+- **Layout**: Two-column grid with stats and narrative dialogue box
 
-#### `ProjectsPage.jsx`
+#### `QuestsPage.jsx` (Projects)
 - **Purpose**: Project showcase in gaming quest format
-- **Features**: Project status badges, tech stack display, action buttons
-- **Data Source**: `projects.js`
+- **Features**: Enhanced quest cards with difficulty ratings, lore, achievements, and rewards
+- **Data Source**: Enhanced quest data with RPG elements
+- **Display**: Epic, Rare, Legendary difficulty tiers with appropriate styling
 
 #### `SkillsPage.jsx`
-- **Purpose**: Technical skills as RPG character abilities
-- **Features**: Skill level bars, character levels, progress visualization
-- **Data Source**: `skills.js`
+- **Purpose**: Technical skills as RPG skill grimoire
+- **Features**: Book-style interface, skill tiers (Easy/Normal/Hard/Godlike), prerequisite system
+- **Data Source**: `skillData.js` with 6 categories (Fundamentals, Soft Skills, Backend, Frontend, DevOps, Cloud)
+- **Interaction**: Clickable skill nodes with detailed side panel
 
 #### `ContactPage.jsx`
-- **Purpose**: Contact form and social media links
-- **Features**: Styled form inputs, social media buttons
-- **Validation**: Basic form structure (ready for validation logic)
+- **Purpose**: NPC-style dialogue system for contact
+- **Features**: Interactive dialogue tree, quest form system, social media integration
+- **Sub-components**: Multiple specialized components for different contact aspects
 
 ### 🔧 **Common Components**
 
@@ -144,6 +159,11 @@ src/
 - **Features**: Health and Mana displays, corner positioning
 - **Style**: Semi-transparent, non-intrusive
 
+#### `ExperienceBar.jsx`
+- **Purpose**: Real-time birthday countdown as experience progression
+- **Features**: Dynamic calculation, days until next level (birthday)
+- **Display**: Progress bar with current age and next level
+
 ## 🎨 Styling Architecture
 
 ### 🎯 **CSS Organization**
@@ -165,35 +185,66 @@ src/
 
 ## 📊 Data Management
 
+### `skillData.js`
+```javascript
+export const skillCategories = {
+  fundamentals: {
+    name: 'Fundamental Skills',
+    icon: '📚',
+    color: 'amber',
+    skills: [
+      {
+        id: 'variables',
+        name: 'Variables',
+        icon: '📦',
+        level: 100,
+        unlocked: true,
+        tier: 'easy',
+        description: 'Basic variable declaration and assignment',
+        prerequisites: []
+      }
+      // ... more skills
+    ]
+  }
+  // ... more categories
+};
+```
+
+### `dialogueTree.js`
+```javascript
+export const dialogueTreeData = {
+  main: {
+    speaker: "Developer Ochi",
+    text: "Greetings, fellow adventurer!...",
+    options: [
+      { id: 'collaboration', text: "🤝 I seek a collaboration quest!", next: 'collaboration' }
+      // ... more options
+    ]
+  }
+  // ... more dialogue nodes
+};
+```
+
 ### `projects.js`
 ```javascript
 export const projects = [
   {
-    name: 'PROJECT_NAME',
-    tech: 'Tech Stack • Separated • By Bullets',
-    status: 'COMPLETE' | 'IN PROGRESS' | 'PLANNED'
+    name: 'MICROSERVICE GATEWAY',
+    tech: 'Node.js • Docker • Kubernetes',
+    status: 'COMPLETE'
   }
-];
-```
-
-### `skills.js`
-```javascript
-export const skills = [
-  {
-    name: 'Skill Name',
-    level: 85 // 0-100 percentage
-  }
+  // ... more projects
 ];
 ```
 
 ### `navItems.js`
 ```javascript
 export const navItems = [
-  {
-    id: 'unique-id',
-    label: 'DISPLAY_NAME',
-    icon: '🎮' // Emoji icon
-  }
+  { id: 'home', label: 'HOME', icon: '🏠' },
+  { id: 'about', label: 'ABOUT', icon: '👤' },
+  { id: 'skills', label: 'SKILLS', icon: '🎯' },
+  { id: 'projects', label: 'QUESTS', icon: '⚔️' },
+  { id: 'contact', label: 'CONTACT', icon: '📮' }
 ];
 ```
 
@@ -220,9 +271,9 @@ yarn install
 
 3. **Start development server**
 ```bash
-npm run dev
+npm start
 # or
-yarn dev
+yarn start
 ```
 
 4. **Build for production**
@@ -245,52 +296,55 @@ Edit `src/styles/variables.css`:
 ```
 
 ### 📝 **Adding New Projects**
-Edit `src/data/projects.js`:
-```javascript
-export const projects = [
-  // ... existing projects
-  {
-    name: 'NEW PROJECT',
-    tech: 'React • Node.js • MongoDB',
-    status: 'IN PROGRESS'
-  }
-];
-```
+Edit `src/data/projects.js` and enhance the quest data in `QuestsPage.jsx`
 
 ### 🎯 **Adding New Skills**
-Edit `src/data/skills.js`:
+Edit `src/data/skillData.js`:
 ```javascript
-export const skills = [
-  // ... existing skills
-  {
-    name: 'New Technology',
-    level: 75
-  }
-];
+// Add to existing category or create new category
+{
+  id: 'new_skill',
+  name: 'New Technology',
+  icon: '🆕',
+  level: 75,
+  unlocked: true,
+  tier: 'normal',
+  description: 'Description of the new skill',
+  prerequisites: ['prerequisite_skill_id']
+}
 ```
+
+### 💬 **Modifying Contact Dialogue**
+Edit `src/data/dialogueTree.js` to add new dialogue paths or modify existing conversations
 
 ### 📄 **Adding New Pages**
 1. Create component in `src/components/pages/`
 2. Add to `src/components/pages/index.js`
 3. Add navigation item to `src/data/navItems.js`
-4. Update routing in `App.jsx`
+4. Update routing in `App.js`
 
 ## 🎮 Gaming Theme Elements
 
 ### **Character Progression**
-- **Level System**: Skills displayed with character levels
-- **Experience Points**: Professional achievements as XP
+- **Level System**: Dynamic age calculation as character level
+- **Experience Points**: Real-time birthday countdown
 - **Status Effects**: Health/Mana bars for engagement
 
 ### **Quest System**
-- **Completed Quests**: Finished projects
-- **Active Quests**: Projects in progress
-- **Quest Rewards**: Technologies learned and implemented
+- **Enhanced Quests**: Projects with difficulty ratings, lore, and rewards
+- **Quest Types**: Different project categories with RPG terminology
+- **Achievement System**: Completion status and experience gained
 
-### **RPG Interface**
-- **Character Sheet**: About page as character information
-- **Inventory**: Skills and tools available
-- **Guild Hall**: Contact and social connections
+### **Skill Grimoire**
+- **Six Skill Categories**: Fundamentals, Soft Skills, Backend, Frontend, DevOps, Cloud
+- **Tier System**: Easy, Normal, Hard, Godlike difficulty progression
+- **Prerequisites**: Skill dependencies and unlock conditions
+- **Book Interface**: Authentic grimoire styling with page tabs
+
+### **NPC Interaction**
+- **Dialogue System**: Branching conversation trees
+- **Quest Giver**: Contact form presented as quest acceptance
+- **Character Status**: Online status and availability information
 
 ## 🔧 Development Notes
 
@@ -321,9 +375,9 @@ export const skills = [
 - **Cause**: Too many animated elements
 - **Solution**: Reduce star count or optimize animation intervals
 
-#### Mobile Responsiveness
-- **Cause**: Fixed pixel sizes
-- **Solution**: Use relative units and CSS clamp()
+#### Skill Tree Loading
+- **Cause**: Large skill data structure
+- **Solution**: Consider lazy loading for skill categories
 
 ## 🤝 Contributing
 
@@ -340,21 +394,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🎯 Future Enhancements
 
 ### **Planned Features**
-- [ ] **Sound Effects** - 8-bit audio feedback
-- [ ] **Save System** - Local storage for user preferences
-- [ ] **Achievement System** - Unlock portfolio sections
+- [ ] **Sound Effects** - 8-bit audio feedback for interactions
+- [ ] **Save System** - Local storage for user preferences and progress
+- [ ] **Achievement System** - Unlock portfolio sections progressively
 - [ ] **Mini-Games** - Interactive coding challenges
 - [ ] **Dark/Light Mode** - Alternative color schemes
 - [ ] **Particle Effects** - Enhanced visual feedback
-- [ ] **Mobile Gestures** - Touch-based navigation
+- [ ] **Mobile Gestures** - Touch-based navigation improvements
 - [ ] **Loading Screens** - Game-style loading animations
 
 ### **Technical Improvements**
-- [ ] **TypeScript Migration** - Better type safety
-- [ ] **Unit Testing** - Component test coverage
-- [ ] **Performance Monitoring** - Bundle size optimization
-- [ ] **CI/CD Pipeline** - Automated deployment
-- [ ] **SEO Optimization** - Meta tags and structured data
+- [ ] **TypeScript Migration** - Better type safety and development experience
+- [ ] **Unit Testing** - Component test coverage with Jest/React Testing Library
+- [ ] **Performance Monitoring** - Bundle size optimization and Core Web Vitals
+- [ ] **CI/CD Pipeline** - Automated deployment and testing
+- [ ] **SEO Optimization** - Meta tags and structured data for better search visibility
 
 ## 📞 Support
 
