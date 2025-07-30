@@ -110,7 +110,7 @@ const AboutPage = () => {
         <div className="bg-gray-800 bg-opacity-80 p-4 pixel-border text-center">
           <div className="text-2xl mb-2">🏆</div>
           <h4 className="text-green-400 font-mono font-bold text-sm mb-2">ACHIEVEMENTS</h4>
-          <p className="text-gray-300 font-mono text-xs">15 Major Projects Completed</p>
+          <p className="text-gray-300 font-mono text-xs">7 Major Projects Completed</p>
         </div>
         
         <div className="bg-gray-800 bg-opacity-80 p-4 pixel-border text-center">
