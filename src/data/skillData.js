@@ -6,13 +6,13 @@ export const skillCategories = {
       skills: [
         // Easy Tier (Row 0)
         { id: 'variables', name: 'Variables', icon: '📦', level: 100, unlocked: true, tier: 'easy', row: 0, col: 0, description: 'Basic variable declaration and assignment', prerequisites: [] },
-        { id: 'loops', name: 'Loops', icon: '🔄', level: 95, unlocked: true, tier: 'easy', row: 0, col: 1, description: 'For loops, while loops, iteration fundamentals', prerequisites: [] },
-        { id: 'functions', name: 'Functions', icon: '⚙️', level: 98, unlocked: true, tier: 'easy', row: 0, col: 2, description: 'Function definition, parameters, return values', prerequisites: [] },
+        { id: 'loops', name: 'Loops', icon: '🔄', level: 100, unlocked: true, tier: 'easy', row: 0, col: 1, description: 'For loops, while loops, iteration fundamentals', prerequisites: [] },
+        { id: 'functions', name: 'Functions', icon: '⚙️', level: 100, unlocked: true, tier: 'easy', row: 0, col: 2, description: 'Function definition, parameters, return values', prerequisites: [] },
         
         // Normal Tier (Row 1)
         { id: 'data_structures', name: 'Data Structures', icon: '🏗️', level: 92, unlocked: true, tier: 'normal', row: 1, col: 0, description: 'Arrays, linked lists, stacks, queues', prerequisites: ['variables'] },
-        { id: 'algorithms', name: 'Algorithms', icon: '🧮', level: 88, unlocked: true, tier: 'normal', row: 1, col: 1, description: 'Sorting, searching, basic algorithms', prerequisites: ['loops', 'functions'] },
-        { id: 'oop', name: 'OOP', icon: '🏛️', level: 90, unlocked: true, tier: 'normal', row: 1, col: 2, description: 'Classes, objects, inheritance, polymorphism', prerequisites: ['functions'] },
+        { id: 'algorithms', name: 'Algorithms', icon: '🧮', level: 90, unlocked: true, tier: 'normal', row: 1, col: 1, description: 'Sorting, searching, basic algorithms', prerequisites: ['loops', 'functions'] },
+        { id: 'oop', name: 'OOP', icon: '🏛️', level: 95, unlocked: true, tier: 'normal', row: 1, col: 2, description: 'Classes, objects, inheritance, polymorphism', prerequisites: ['functions'] },
         
         // Hard Tier (Row 2)
         { id: 'advanced_algorithms', name: 'Advanced Algorithms', icon: '🎯', level: 85, unlocked: true, tier: 'hard', row: 2, col: 0, description: 'Dynamic programming, graph algorithms', prerequisites: ['data_structures', 'algorithms'] },
@@ -20,9 +20,9 @@ export const skillCategories = {
         { id: 'complexity_analysis', name: 'Big O Analysis', icon: '📊', level: 87, unlocked: true, tier: 'hard', row: 2, col: 2, description: 'Time and space complexity analysis', prerequisites: ['algorithms'] },
         
         // Godlike Tier (Row 3)
-        { id: 'system_design', name: 'System Design', icon: '🏗️', level: 75, unlocked: false, tier: 'godlike', row: 3, col: 0, description: 'Large-scale distributed system architecture', prerequisites: ['advanced_algorithms', 'design_patterns'] },
-        { id: 'architectural_patterns', name: 'Architecture', icon: '🏛️', level: 78, unlocked: false, tier: 'godlike', row: 3, col: 1, description: 'Microservices, event-driven architecture', prerequisites: ['design_patterns', 'complexity_analysis'] },
-        { id: 'performance_optimization', name: 'Optimization', icon: '⚡', level: 80, unlocked: false, tier: 'godlike', row: 3, col: 2, description: 'Memory management, performance tuning', prerequisites: ['complexity_analysis'] }
+        { id: 'system_design', name: 'System Design', icon: '🏗️', level: 75, unlocked: true, tier: 'godlike', row: 3, col: 0, description: 'Large-scale distributed system architecture', prerequisites: ['advanced_algorithms', 'design_patterns'] },
+        { id: 'architectural_patterns', name: 'Architecture', icon: '🏛️', level: 78, unlocked: true, tier: 'godlike', row: 3, col: 1, description: 'Microservices, event-driven architecture', prerequisites: ['design_patterns', 'complexity_analysis'] },
+        { id: 'performance_optimization', name: 'Optimization', icon: '⚡', level: 77, unlocked: true, tier: 'godlike', row: 3, col: 2, description: 'Memory management, performance tuning', prerequisites: ['complexity_analysis'] }
       ]
     },
     softskills: {
@@ -33,20 +33,20 @@ export const skillCategories = {
         // Easy Tier
         { id: 'active_listening', name: 'Active Listening', icon: '👂', level: 88, unlocked: true, tier: 'easy', row: 0, col: 0, description: 'Focused attention and understanding in conversations', prerequisites: [] },
         { id: 'written_communication', name: 'Written Communication', icon: '✍️', level: 90, unlocked: true, tier: 'easy', row: 0, col: 1, description: 'Clear documentation and email communication', prerequisites: [] },
-        { id: 'time_management', name: 'Time Management', icon: '⏰', level: 85, unlocked: true, tier: 'easy', row: 0, col: 2, description: 'Prioritizing tasks and meeting deadlines', prerequisites: [] },
+        { id: 'time_management', name: 'Time Management', icon: '⏰', level: 90, unlocked: true, tier: 'easy', row: 0, col: 2, description: 'Prioritizing tasks and meeting deadlines', prerequisites: [] },
         
         // Normal Tier
-        { id: 'collaboration', name: 'Collaboration', icon: '🤝', level: 87, unlocked: true, tier: 'normal', row: 1, col: 0, description: 'Working effectively in team environments', prerequisites: ['active_listening'] },
-        { id: 'problem_solving', name: 'Problem Solving', icon: '🧩', level: 92, unlocked: true, tier: 'normal', row: 1, col: 1, description: 'Breaking down complex problems systematically', prerequisites: ['written_communication'] },
-        { id: 'adaptability', name: 'Adaptability', icon: '🌊', level: 89, unlocked: true, tier: 'normal', row: 1, col: 2, description: 'Flexibility with changing requirements and technologies', prerequisites: ['time_management'] },
+        { id: 'collaboration', name: 'Collaboration', icon: '🤝', level: 93, unlocked: true, tier: 'normal', row: 1, col: 0, description: 'Working effectively in team environments', prerequisites: ['active_listening'] },
+        { id: 'problem_solving', name: 'Problem Solving', icon: '🧩', level: 99, unlocked: true, tier: 'normal', row: 1, col: 1, description: 'Breaking down complex problems systematically', prerequisites: ['written_communication'] },
+        { id: 'adaptability', name: 'Adaptability', icon: '🌊', level: 91, unlocked: true, tier: 'normal', row: 1, col: 2, description: 'Flexibility with changing requirements and technologies', prerequisites: ['time_management'] },
         
         // Hard Tier
-        { id: 'mentoring', name: 'Mentoring', icon: '🎓', level: 78, unlocked: true, tier: 'hard', row: 2, col: 0, description: 'Guiding junior developers and knowledge sharing', prerequisites: ['collaboration', 'problem_solving'] },
-        { id: 'conflict_resolution', name: 'Conflict Resolution', icon: '⚖️', level: 75, unlocked: false, tier: 'hard', row: 2, col: 1, description: 'Mediating disagreements and finding solutions', prerequisites: ['collaboration'] },
-        { id: 'critical_thinking', name: 'Critical Thinking', icon: '🔍', level: 82, unlocked: true, tier: 'hard', row: 2, col: 2, description: 'Analytical reasoning and decision making', prerequisites: ['problem_solving', 'adaptability'] },
+        { id: 'mentoring', name: 'Mentoring', icon: '🎓', level: 81, unlocked: true, tier: 'hard', row: 2, col: 0, description: 'Guiding junior developers and knowledge sharing', prerequisites: ['collaboration', 'problem_solving'] },
+        { id: 'conflict_resolution', name: 'Conflict Resolution', icon: '⚖️', level: 83, unlocked: true, tier: 'hard', row: 2, col: 1, description: 'Mediating disagreements and finding solutions', prerequisites: ['collaboration'] },
+        { id: 'critical_thinking', name: 'Critical Thinking', icon: '🔍', level: 85, unlocked: true, tier: 'hard', row: 2, col: 2, description: 'Analytical reasoning and decision making', prerequisites: ['problem_solving', 'adaptability'] },
         
         // Godlike Tier
-        { id: 'technical_leadership', name: 'Tech Leadership', icon: '👑', level: 70, unlocked: false, tier: 'godlike', row: 3, col: 0, description: 'Leading technical teams and driving innovation', prerequisites: ['mentoring', 'conflict_resolution'] },
+        { id: 'technical_leadership', name: 'Tech Leadership', icon: '👑', level: 70, unlocked: true, tier: 'godlike', row: 3, col: 0, description: 'Leading technical teams and driving innovation', prerequisites: ['mentoring', 'conflict_resolution'] },
         { id: 'strategic_thinking', name: 'Strategic Thinking', icon: '🎯', level: 72, unlocked: false, tier: 'godlike', row: 3, col: 1, description: 'Long-term planning and business alignment', prerequisites: ['critical_thinking', 'conflict_resolution'] },
         { id: 'stakeholder_management', name: 'Stakeholder Management', icon: '🤵', level: 68, unlocked: false, tier: 'godlike', row: 3, col: 2, description: 'Managing expectations and cross-functional relationships', prerequisites: ['strategic_thinking'] }
       ]
@@ -73,8 +73,8 @@ export const skillCategories = {
         
         // Godlike Tier
         { id: 'event_sourcing', name: 'Event Sourcing', icon: '📜', level: 70, unlocked: false, tier: 'godlike', row: 3, col: 0, description: 'Event-driven architecture patterns', prerequisites: ['microservices', 'message_queues'] },
-        { id: 'distributed_systems', name: 'Distributed Systems', icon: '🌐', level: 72, unlocked: false, tier: 'godlike', row: 3, col: 1, description: 'CAP theorem, consensus algorithms', prerequisites: ['caching', 'message_queues'] },
-        { id: 'high_availability', name: 'High Availability', icon: '🛡️', level: 75, unlocked: false, tier: 'godlike', row: 3, col: 2, description: 'Load balancing, failover, redundancy', prerequisites: ['distributed_systems'] }
+        { id: 'distributed_systems', name: 'Distributed Systems', icon: '🌐', level: 72, unlocked: true, tier: 'godlike', row: 3, col: 1, description: 'CAP theorem, consensus algorithms', prerequisites: ['caching', 'message_queues'] },
+        { id: 'high_availability', name: 'High Availability', icon: '🛡️', level: 75, unlocked: true, tier: 'godlike', row: 3, col: 2, description: 'Load balancing, failover, redundancy', prerequisites: ['distributed_systems'] }
       ]
     },
     frontend: {
