@@ -98,7 +98,7 @@ const DialogueSystem = ({
     <div className="bg-gray-800 bg-opacity-95 pixel-border relative min-h-96">
       {/* Character Portrait */}
       <div className="absolute -top-8 -left-8 w-16 h-16 bg-gray-900 border-4 border-green-400 rounded-full flex items-center justify-center text-2xl z-10">
-        👨‍💻
+      🧑🏻
       </div>
 
       {/* Dialogue Header */}

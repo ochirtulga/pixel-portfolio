@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HomePage, AboutPage, ProjectsPage, SkillsPage, ContactPage } from './components/pages';
+import { HomePage, AboutPage, QuestsPage, SkillsPage, ContactPage } from './components/pages';
 import { Navigation, Background, HealthManaDisplay, ExperienceBar } from './components/layout';
 import '../src/styles/globals.css';
 
@@ -19,7 +19,7 @@ const App = () => {
       case 'about':
         return <AboutPage />;
       case 'projects':
-        return <ProjectsPage />;
+        return <QuestsPage />;
       case 'skills':
         return <SkillsPage />;
       case 'contact':

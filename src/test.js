@@ -49,7 +49,7 @@ const AboutPage = () => (
       <div className="bg-gray-800 bg-opacity-80 p-6 pixel-border">
         <h3 className="text-2xl text-green-400 font-mono mb-4">BACKSTORY</h3>
         <p className="text-gray-300 font-mono leading-relaxed">
-          A seasoned Level 27 Backend Developer who has mastered the arcane arts 
+          A seasoned Level 27 Backend Adventurer who has mastered the arcane arts 
           of microservices architecture and RESTful API design. Known throughout 
           the digital realm for crafting scalable systems and optimizing server 
           performance in the most challenging environments.

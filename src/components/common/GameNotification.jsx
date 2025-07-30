@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const GameNotification = ({ 
   notification, 
   onClose,
-  duration = 4000 
+  duration = null // Remove auto-close, only manual close
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
@@ -13,22 +13,19 @@ const GameNotification = ({
       // Show notification
       setIsVisible(true);
       setIsExiting(false);
-
-      // Auto-hide after duration
-      const hideTimer = setTimeout(() => {
-        setIsExiting(true);
-        // Wait for exit animation, then remove
-        setTimeout(() => {
-          setIsVisible(false);
-          onClose();
-        }, 500);
-      }, duration);
-
-      return () => clearTimeout(hideTimer);
+      // Remove auto-hide timer - only manual close now
     }
-  }, [notification, duration, onClose]);
+  }, [notification, onClose]);
 
   if (!notification || !isVisible) return null;
+
+  const handleClose = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setIsVisible(false);
+      onClose();
+    }, 500);
+  };
 
   const getNotificationStyles = () => {
     if (notification.type === 'success') {
@@ -111,13 +108,7 @@ const GameNotification = ({
               </h3>
             </div>
             <button
-              onClick={() => {
-                setIsExiting(true);
-                setTimeout(() => {
-                  setIsVisible(false);
-                  onClose();
-                }, 500);
-              }}
+              onClick={handleClose}
               className={`${styles.accentColor} hover:text-white transition-colors text-xl font-bold`}
             >
               ×
@@ -176,17 +167,11 @@ const GameNotification = ({
           {/* Footer with continue button */}
           <div className={`px-4 py-3 border-t-2 ${styles.borderColor} text-center`}>
             <button
-              onClick={() => {
-                setIsExiting(true);
-                setTimeout(() => {
-                  setIsVisible(false);
-                  onClose();
-                }, 500);
-              }}
+              onClick={handleClose}
               className={`
                 ${styles.accentColor} hover:bg-gray-700 hover:text-white
-                px-4 py-2 font-mono font-bold text-sm border-2 ${styles.borderColor}
-                transition-all duration-200 pixel-border
+                px-6 py-3 font-mono font-bold text-sm border-2 ${styles.borderColor}
+                transition-all duration-200 pixel-border animate-pulse
               `}
             >
               CONTINUE → 

@@ -6,7 +6,7 @@ const getCurrentLevel = () => calculateCurrentLevel();
 
 export const dialogueTreeData = {
     main: {
-      speaker: `Developer ${CHARACTER_CONFIG.name}`,
+      speaker: `Adventurer ${CHARACTER_CONFIG.name}`,
       text: `Greetings, fellow adventurer! I am ${CHARACTER_CONFIG.name}, a Level ${getCurrentLevel()} ${CHARACTER_CONFIG.title}. What brings you to my digital realm today?`,
       options: [
         { id: 'collaboration', text: "🤝 I seek a collaboration quest!", next: 'collaboration' },
@@ -16,7 +16,7 @@ export const dialogueTreeData = {
       ]
     },
     collaboration: {
-      speaker: `Developer ${CHARACTER_CONFIG.name}`,
+      speaker: `Adventurer ${CHARACTER_CONFIG.name}`,
       text: "Excellent! I'm always excited about new collaborative quests. Whether it's building microservices, crafting APIs, or conquering distributed systems, I'm ready for the challenge!",
       info: "💡 Best for: Joint projects, open source contributions, technical partnerships",
       options: [
@@ -25,8 +25,8 @@ export const dialogueTreeData = {
       ]
     },
     mentoring: {
-      speaker: `Developer ${CHARACTER_CONFIG.name}`,
-      text: "Ah, a fellow seeker of knowledge! I'd be honored to share my experience in the mystical arts of backend development. From junior developer quests to senior architect challenges, I can guide your journey.",
+      speaker: `Adventurer ${CHARACTER_CONFIG.name}`,
+      text: "Ah, a fellow seeker of knowledge! I'd be honored to share my experience in the mystical arts of backend development. From junior adventurer quests to senior architect challenges, I can guide your journey.",
       info: "🎯 Best for: Code reviews, career guidance, technical skill development",
       options: [
         { id: 'form', text: "🏆 Request mentoring session!", next: 'form', type: 'mentoring' },
@@ -34,7 +34,7 @@ export const dialogueTreeData = {
       ]
     },
     hiring: {
-      speaker: `Developer ${CHARACTER_CONFIG.name}`,
+      speaker: `Adventurer ${CHARACTER_CONFIG.name}`,
       text: "Intriguing! You have a quest that requires my particular set of skills? I specialize in backend sorcery, microservices architecture, and API crafting. Tell me about this legendary opportunity!",
       info: "⚔️ Best for: Full-time roles, contract work, technical consulting",
       options: [
@@ -43,8 +43,8 @@ export const dialogueTreeData = {
       ]
     },
     networking: {
-      speaker: `Developer ${CHARACTER_CONFIG.name}`,
-      text: "Welcome to the guild! Networking is essential for any successful adventurer. I'm always happy to connect with fellow developers, share experiences, and build lasting professional relationships.",
+      speaker: `Adventurer ${CHARACTER_CONFIG.name}`,
+      text: "Welcome to the guild! Networking is essential for any successful adventurer. I'm always happy to connect with fellow adventurers, share experiences, and build lasting professional relationships.",
       info: "🌟 Best for: Professional connections, tech discussions, community building",
       options: [
         { id: 'form', text: "🎪 Let's connect and chat!", next: 'form', type: 'networking' },

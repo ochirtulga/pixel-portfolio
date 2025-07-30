@@ -1,5 +1,5 @@
 // src/services/emailService.js
-// Mailto approach (opens user's default email client)
+// Simple mailto service for opening user's default email client
 export const sendMailtoEmail = (formData) => {
   const subject = encodeURIComponent(`${formData.contactType} Quest from ${formData.name}`);
   const body = encodeURIComponent(`
@@ -16,7 +16,6 @@ Sent from your Pixel Portfolio contact form
   
   const mailtoLink = `mailto:ochirtulgan@gmail.com?subject=${subject}&body=${body}`;
   
-  // Try to open the mailto link
   try {
     window.location.href = mailtoLink;
     return { 

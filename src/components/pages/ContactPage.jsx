@@ -14,10 +14,10 @@ const ContactPage = () => {
   const [selectedContactType, setSelectedContactType] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     message: '',
     contactType: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
   const handleDialogueChoice = (choice) => {
@@ -38,23 +38,10 @@ const ContactPage = () => {
     });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert(`Quest received! Thank you for choosing the ${selectedContactType} path! 🎉`);
-      setFormData({ name: '', message: '', contactType: '' });
-      setCurrentDialogue('main');
-      setShowForm(false);
-    }, 2000);
-  };
-
   const handleFormCancel = () => {
     setShowForm(false);
     setCurrentDialogue('main');
+    setFormData({ name: '', email: '', message: '', contactType: '' });
   };
 
   const handleSocialClick = (platform) => {
@@ -73,7 +60,6 @@ const ContactPage = () => {
 
   return (
     <div className="py-8 animate-fade-in">
-      {/* Header Section */}
       <ContactPageHeader />
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
@@ -104,9 +90,7 @@ const ContactPage = () => {
                 <QuestForm
                   formData={formData}
                   selectedContactType={selectedContactType}
-                  isSubmitting={isSubmitting}
                   onInputChange={handleInputChange}
-                  onSubmit={handleFormSubmit}
                   onCancel={handleFormCancel}
                 />
               </div>

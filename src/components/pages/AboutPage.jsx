@@ -8,7 +8,7 @@ const AboutPage = () => {
 
   const currentLevel = calculateCurrentLevel();
 
-  const fullText = "A seasoned Backend Adventurer who has mastered the arcane arts of microservices architecture and RESTful API design. Known throughout the digital realm for crafting scalable systems and optimizing server performance in the most challenging environments. With years of experience battling complex distributed systems, this developer has earned legendary status among peers for delivering robust, high-performance solutions that stand the test of time.";
+  const fullText = "A seasoned Backend Adventurer who has mastered the arcane arts of microservices architecture and RESTful API design. Known throughout the digital realm for crafting scalable systems and optimizing server performance in the most challenging environments. With years of experience battling complex distributed systems, this adventurer has earned legendary status among peers for delivering robust, high-performance solutions that stand the test of time.";
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -88,7 +88,7 @@ const AboutPage = () => {
           
           {/* Character portrait placeholder */}
           <div className="mt-4 text-center">
-            <div className="text-6xl mb-2">👨‍💻</div>
+            <div className="text-6xl mb-2">👨🏻‍💻</div>
             <span className="text-green-400 font-mono text-sm font-bold">LEVEL {currentLevel} ADVENTURER</span>
           </div>
         </div>

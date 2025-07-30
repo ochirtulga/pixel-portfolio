@@ -214,7 +214,7 @@ export const skillCategories = {
 ```javascript
 export const dialogueTreeData = {
   main: {
-    speaker: "Developer Ochi",
+    speaker: "Adventurer Ochi",
     text: "Greetings, fellow adventurer!...",
     options: [
       { id: 'collaboration', text: "🤝 I seek a collaboration quest!", next: 'collaboration' }

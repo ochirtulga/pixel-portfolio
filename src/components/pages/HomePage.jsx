@@ -12,7 +12,7 @@ const HomePage = ({ onNavigate }) => {
         WELCOME
       </h2>
       <p className="text-xl text-gray-300 font-mono mb-8 max-w-2xl mx-auto">
-        I AM A LEVEL {currentLevel} {CHARACTER_CONFIG.title}<br/>
+        TO A PROFILE OF LEVEL {currentLevel} {CHARACTER_CONFIG.title}<br/>
         SPECIALIZING IN {CHARACTER_CONFIG.specialization}
       </p>
       <div className="flex justify-center gap-4">
