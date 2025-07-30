@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HomePage, AboutPage, ProjectsPage, SkillsPage, ContactPage } from './components/pages';
+import TalentTreePage from './components/pages/SkillsPage'; // Import the new TalentTreePage
 import { Navigation, Background, HealthManaDisplay } from './components/layout';
 import '../src/styles/globals.css';
 
