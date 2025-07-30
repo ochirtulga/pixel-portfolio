@@ -3,7 +3,7 @@ import { skillCategories } from '../../data/skillData';
 import SkillNode from './SkillNode';
 import SkillDetailPanel from './SkillDetailPanel';
 
-const TalentTreePage = () => {
+const SkillsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('fundamentals');
   const [selectedSkill, setSelectedSkill] = useState(null);
 
@@ -63,13 +63,13 @@ const TalentTreePage = () => {
   };
 
   return (
-    <div className="py-8 animate-fade-in">
+    <div className="py-4 animate-fade-in">
       <h2 className="text-4xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
         📗 SKILL GRIMOIRE
       </h2>
       
       {/* Book Container */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="bg-gradient-to-b from-yellow-100 to-yellow-200 rounded-lg shadow-2xl border-4 border-yellow-800 relative">
           {/* Book Spine Effect */}
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-yellow-900 to-yellow-700 rounded-l-lg border-r-2 border-yellow-600"></div>
@@ -84,7 +84,7 @@ const TalentTreePage = () => {
                   setSelectedSkill(null);
                 }}
                 className={`
-                  px-4 py-3 font-bold font-mono text-sm flex items-center gap-2 border-r-2 border-yellow-800 transition-all duration-300 flex-shrink-0 min-w-max
+                  px-3 py-2 font-bold font-mono text-sm flex items-center gap-2 border-r-2 border-yellow-800 transition-all duration-300 flex-shrink-0 min-w-max
                   ${selectedCategory === key 
                     ? `bg-${category.color}-400 text-white shadow-inner` 
                     : 'bg-yellow-300 hover:bg-yellow-200 text-yellow-900'
@@ -99,7 +99,7 @@ const TalentTreePage = () => {
           
           <div className="flex">
             {/* Skills Grid */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-4">
               <h3 className="text-2xl font-bold text-yellow-900 font-mono mb-6 text-center">
                 {currentCategory.icon} {currentCategory.name}
               </h3>
@@ -108,11 +108,11 @@ const TalentTreePage = () => {
               <div className="bg-yellow-50 p-6 rounded border-2 border-yellow-600 shadow-inner">
                 <div className="space-y-6">
                   {/* Easy Lane */}
-                  <div className={`${tierConfig.easy.bgColor} ${tierConfig.easy.borderColor} border-2 rounded-lg p-4`}>
-                    <div className={`${tierConfig.easy.headerBg} ${tierConfig.easy.textColor} px-4 py-2 rounded-md mb-4 text-center font-mono font-bold text-lg`}>
+                  <div className={`${tierConfig.easy.bgColor} ${tierConfig.easy.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.easy.headerBg} ${tierConfig.easy.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
                       🟢 {tierConfig.easy.name} TIER
                     </div>
-                    <div className="grid grid-cols-3 gap-6 place-items-center">
+                    <div className="grid grid-cols-3 gap-4 place-items-center">
                       {skillsByTier.easy.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
@@ -121,7 +121,7 @@ const TalentTreePage = () => {
                             setSelectedSkill={setSelectedSkill}
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
-                          <div className="text-center mt-2">
+                          <div className="text-center mt-1">
                             <span className={`text-xs font-mono font-bold ${tierConfig.easy.textColor}`}>
                               {skill.name}
                             </span>
@@ -132,11 +132,11 @@ const TalentTreePage = () => {
                   </div>
 
                   {/* Normal Lane */}
-                  <div className={`${tierConfig.normal.bgColor} ${tierConfig.normal.borderColor} border-2 rounded-lg p-4`}>
-                    <div className={`${tierConfig.normal.headerBg} ${tierConfig.normal.textColor} px-4 py-2 rounded-md mb-4 text-center font-mono font-bold text-lg`}>
+                  <div className={`${tierConfig.normal.bgColor} ${tierConfig.normal.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.normal.headerBg} ${tierConfig.normal.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
                       🟡 {tierConfig.normal.name} TIER
                     </div>
-                    <div className="grid grid-cols-3 gap-6 place-items-center">
+                    <div className="grid grid-cols-3 gap-4 place-items-center">
                       {skillsByTier.normal.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
@@ -145,7 +145,7 @@ const TalentTreePage = () => {
                             setSelectedSkill={setSelectedSkill}
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
-                          <div className="text-center mt-2">
+                          <div className="text-center mt-1">
                             <span className={`text-xs font-mono font-bold ${tierConfig.normal.textColor}`}>
                               {skill.name}
                             </span>
@@ -156,11 +156,11 @@ const TalentTreePage = () => {
                   </div>
 
                   {/* Hard Lane */}
-                  <div className={`${tierConfig.hard.bgColor} ${tierConfig.hard.borderColor} border-2 rounded-lg p-4`}>
-                    <div className={`${tierConfig.hard.headerBg} ${tierConfig.hard.textColor} px-4 py-2 rounded-md mb-4 text-center font-mono font-bold text-lg`}>
+                  <div className={`${tierConfig.hard.bgColor} ${tierConfig.hard.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.hard.headerBg} ${tierConfig.hard.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
                       🟠 {tierConfig.hard.name} TIER
                     </div>
-                    <div className="grid grid-cols-3 gap-6 place-items-center">
+                    <div className="grid grid-cols-3 gap-4 place-items-center">
                       {skillsByTier.hard.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
@@ -169,7 +169,7 @@ const TalentTreePage = () => {
                             setSelectedSkill={setSelectedSkill}
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
-                          <div className="text-center mt-2">
+                          <div className="text-center mt-1">
                             <span className={`text-xs font-mono font-bold ${tierConfig.hard.textColor}`}>
                               {skill.name}
                             </span>
@@ -180,11 +180,11 @@ const TalentTreePage = () => {
                   </div>
 
                   {/* Godlike Lane */}
-                  <div className={`${tierConfig.godlike.bgColor} ${tierConfig.godlike.borderColor} border-2 rounded-lg p-4`}>
-                    <div className={`${tierConfig.godlike.headerBg} ${tierConfig.godlike.textColor} px-4 py-2 rounded-md mb-4 text-center font-mono font-bold text-lg`}>
+                  <div className={`${tierConfig.godlike.bgColor} ${tierConfig.godlike.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.godlike.headerBg} ${tierConfig.godlike.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
                       🔴 {tierConfig.godlike.name} TIER
                     </div>
-                    <div className="grid grid-cols-3 gap-6 place-items-center">
+                    <div className="grid grid-cols-3 gap-4 place-items-center">
                       {skillsByTier.godlike.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
@@ -222,4 +222,4 @@ const TalentTreePage = () => {
   );
 };
 
-export default TalentTreePage;
+export default SkillsPage;

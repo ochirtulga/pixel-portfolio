@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { HomePage, AboutPage, ProjectsPage, SkillsPage, ContactPage } from './components/pages';
-import TalentTreePage from './components/pages/SkillsPage'; // Import the new TalentTreePage
-import { Navigation, Background, HealthManaDisplay } from './components/layout';
+import { Navigation, Background, HealthManaDisplay, ExperienceBar } from './components/layout';
 import '../src/styles/globals.css';
 
 const App = () => {
@@ -42,12 +41,15 @@ const App = () => {
       />
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-6xl mx-auto p-6">
+      <main className="relative z-10 max-w-6xl mx-auto p-6" style={{ paddingBottom: '80px' }}>
         {renderCurrentPage()}
       </main>
 
       {/* Floating Health/Mana bars */}
       <HealthManaDisplay />
+      
+      {/* Experience Bar at bottom */}
+      <ExperienceBar />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const ContactPage = () => {
   const handleSocialClick = (platform) => {
     const socialLinks = {
       github: 'https://github.com/ochirtulga', // Replace with your actual GitHub username
-      linkedin: 'https://linkedin.com/in/ochirtulga-namjim', // Replace with your actual LinkedIn profile
+      linkedin: 'https://linkedin.com/in/ochirtulga', // Replace with your actual LinkedIn profile
       instagram: 'https://instagram.com/_ochrono_', // Replace with your actual Instagram handle
       leetcode: 'https://leetcode.com/ochirtulga' // Replace with your actual LeetCode username
     };

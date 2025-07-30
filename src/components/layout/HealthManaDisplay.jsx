@@ -2,7 +2,7 @@ import React from 'react';
 import { HealthBar } from '../common';
 
 const HealthManaDisplay = () => (
-  <div className="fixed bottom-6 left-6 z-20 space-y-2">
+  <div className="fixed bottom-20 left-6 z-20 space-y-2">
     <div className="flex items-center gap-3">
       <span className="text-red-400 font-mono font-bold text-sm">HP</span>
       <HealthBar value={100} color="red" />
