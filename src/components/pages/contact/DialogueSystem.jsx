@@ -151,7 +151,7 @@ const DialogueSystem = ({
 
           {/* Click to skip indicator during typing */}
           {(!isTypingComplete || (currentNode.info && !isInfoTypingComplete)) && (
-            <div className="absolute top-2 right-3">
+            <div className="absolute bottom-2 left-3">
               <span className="text-gray-500 font-mono text-xs opacity-60">Click to skip</span>
             </div>
           )}

@@ -61,7 +61,7 @@ const ExperienceBar = () => {
             
             {/* Days Until Career Anniversary */}
             <div className="text-yellow-400 font-mono text-xs">
-              {experienceData.daysUntilAnniversary} days to anniversary
+              {experienceData.daysUntilAnniversary} exp to reach next level
             </div>
             
             {/* Career Start Year */}
@@ -70,13 +70,6 @@ const ExperienceBar = () => {
             </div>
           </div>
           
-        </div>
-        
-        {/* Additional Career Info on Hover */}
-        <div className="text-center mt-1">
-          <span className="text-gray-500 font-mono text-xs">
-            Professional Developer • {careerMilestones.experienceYears} Experience
-          </span>
         </div>
       </div>
     </div>

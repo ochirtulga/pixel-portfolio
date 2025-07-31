@@ -7,11 +7,26 @@ const QuestsPage = () => {
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case 'EASY': return 'text-gray-400 border-gray-400';
-      case 'NORMAL': return 'text-blue-400 border-blue-400';
-      case 'HARD': return 'text-purple-400 border-purple-400';
-      case 'EXTREME': return 'text-yellow-400 border-yellow-400';
-      default: return 'text-gray-400 border-gray-400';
+      case 'EASY': 
+        return 'text-green-300 border-green-400 bg-green-900 shadow-green-400/20';
+      case 'NORMAL': 
+        return 'text-blue-300 border-blue-400 bg-blue-900 shadow-blue-400/20';
+      case 'HARD': 
+        return 'text-purple-300 border-purple-400 bg-purple-900 shadow-purple-400/20';
+      case 'EXTREME': 
+        return 'text-yellow-300 border-yellow-400 bg-yellow-900 shadow-yellow-400/20';
+      default: 
+        return 'text-gray-300 border-gray-400 bg-gray-900 shadow-gray-400/20';
+    }
+  };
+
+  const getDifficultyIcon = (difficulty) => {
+    switch (difficulty) {
+      case 'EASY': return '🟢';
+      case 'NORMAL': return '🔵';
+      case 'HARD': return '🟣';
+      case 'EXTREME': return '🟡';
+      default: return '⚪';
     }
   };
 
@@ -35,18 +50,26 @@ const QuestsPage = () => {
           <div key={quest.id} className="bg-gray-800 bg-opacity-80 pixel-border hover:bg-opacity-90 transition-all">
             {/* Quest Header */}
             <div className="p-6 border-b border-gray-700">
-              <div className="flex justify-between items-start mb-3">
+              <div className="flex justify-between items-center mb-3">
                 <div className="flex items-center gap-3">
                   <h3 className="text-xl font-bold text-green-400 font-mono">{quest.name}</h3>
-                  <span className={`px-2 py-1 text-xs font-mono font-bold border ${getDifficultyColor(quest.difficulty)} rounded`}>
-                    {quest.difficulty}
-                  </span>
+                  <div className={`
+                    px-3 py-1 text-xs font-mono font-bold border-2 rounded-md
+                    ${getDifficultyColor(quest.difficulty)} 
+                    bg-opacity-20 border-opacity-80 shadow-lg
+                    flex items-center gap-2 whitespace-nowrap
+                    hover:bg-opacity-30 hover:scale-105 transition-all duration-200
+                  `}>
+                    <span className="text-sm">{getDifficultyIcon(quest.difficulty)}</span>
+                    <span>{quest.difficulty}</span>
+                  </div>
                 </div>
                 <span className={`px-3 py-1 text-xs font-mono font-bold pixel-border ${getStatusColor(quest.status)}`}>
                   {quest.status}
                 </span>
               </div>
               
+              {/* Quest Metadata */}
               <div className="grid md:grid-cols-3 gap-4 text-sm font-mono">
                 <div>
                   <span className="text-gray-400">📍 LOCATION:</span>
@@ -82,7 +105,7 @@ const QuestsPage = () => {
               
               <div className="mb-6">
                 <h4 className="text-green-400 font-mono font-bold text-sm mb-2">QUEST REWARDS:</h4>
-                <div className="bg-gray-900 p-3 rounded border border-yellow-600">
+                <div className="bg-gray-900 bg-opacity-30 p-2 rounded border border-yellow-600">
                   <p className="text-yellow-400 font-mono text-sm">{quest.reward}</p>
                 </div>
               </div>

@@ -59,7 +59,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="py-8 animate-fade-in">
+    <div className="py-4 animate-fade-in">
       <ContactPageHeader />
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">

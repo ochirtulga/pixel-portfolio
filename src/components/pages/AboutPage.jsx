@@ -144,6 +144,17 @@ const AboutPage = () => {
     }
   }, [currentIndex, fullText]);
 
+  // Skip typewriter function
+  const handleSkipTypewriter = () => {
+    if (!isTypingComplete) {
+      setDisplayedText(fullText);
+      setCurrentIndex(fullText.length);
+      setIsTypingComplete(true);
+      setShowStats(true);
+      setShowAchievements(true);
+    }
+  };
+
   const getRarityColor = (rarity) => {
     switch (rarity) {
       case 'legendary': return 'text-yellow-400 border-yellow-400 bg-yellow-900';
@@ -217,15 +228,18 @@ const AboutPage = () => {
         
         {/* Main Content Area */}
         <div className="lg:col-span-2 space-y-8">
-          {/* Backstory Section */}
+          {/* Backstory Section with Skippable Typewriter */}
           <div className="bg-gray-800 bg-opacity-90 pixel-border">
             <div className="bg-gradient-to-r from-purple-900 to-purple-800 px-6 py-4 border-b-2 border-purple-400">
               <h3 className="text-2xl text-purple-400 font-mono font-bold">🎭 BACKSTORY</h3>
             </div>
             
             <div className="p-6">
-              {/* Game-style dialogue box */}
-              <div className="bg-gray-900 p-6 rounded-lg border-2 border-green-400 min-h-48 relative">
+              {/* Game-style dialogue box with click handler */}
+              <div 
+                className="bg-gray-900 p-6 rounded-lg border-2 border-green-400 min-h-48 relative cursor-pointer hover:bg-gray-800 transition-colors"
+                onClick={handleSkipTypewriter}
+              >
                 {/* Dialogue box arrow */}
                 <div className="absolute -top-2 left-6 w-4 h-4 bg-gray-900 border-l-2 border-t-2 border-green-400 transform rotate-45"></div>
                 
@@ -235,7 +249,7 @@ const AboutPage = () => {
                     <div className="text-green-400 font-mono font-bold text-sm mb-2">
                       Adventurer {CHARACTER_CONFIG.name} says:
                     </div>
-                    <p className="text-gray-300 font-mono leading-relaxed text-sm">
+                    <p className="text-gray-300 font-mono leading-relaxed text-sm min-h-[100px]">
                       {displayedText}
                       {!isTypingComplete && (
                         <span className="animate-blink text-green-400 ml-1">|</span>
@@ -243,6 +257,13 @@ const AboutPage = () => {
                     </p>
                   </div>
                 </div>
+                
+                {/* Click to skip indicator during typing */}
+                {!isTypingComplete && (
+                  <div className="absolute top-2 right-3">
+                    <span className="text-gray-500 font-mono text-xs opacity-60 animate-pulse">Click to skip</span>
+                  </div>
+                )}
                 
                 {/* Continue indicator when typing is complete */}
                 {isTypingComplete && (
