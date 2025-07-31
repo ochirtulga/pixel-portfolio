@@ -7,10 +7,10 @@ const QuestsPage = () => {
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case 'NOVICE': return 'text-gray-400 border-gray-400';
-      case 'APPRENTICE': return 'text-blue-400 border-blue-400';
-      case 'ADEPT': return 'text-purple-400 border-purple-400';
-      case 'MASTER': return 'text-yellow-400 border-yellow-400';
+      case 'EASY': return 'text-gray-400 border-gray-400';
+      case 'NORMAL': return 'text-blue-400 border-blue-400';
+      case 'HARD': return 'text-purple-400 border-purple-400';
+      case 'EXTREME': return 'text-yellow-400 border-yellow-400';
       default: return 'text-gray-400 border-gray-400';
     }
   };

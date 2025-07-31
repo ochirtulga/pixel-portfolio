@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { calculateExperienceData } from '../../data/characterConfig';
+import { calculateExperienceData, getCareerMilestones } from '../../data/characterConfig';
 
 const ExperienceBar = () => {
   const [experienceData, setExperienceData] = useState({ 
     percentage: 0, 
-    daysUntilBirthday: 0, 
-    currentAge: 0,
+    daysUntilAnniversary: 0, 
+    currentLevel: 0,
     nextLevel: 0
   });
+  const [careerMilestones, setCareerMilestones] = useState({});
 
-  // Calculate experience based on birthday progress
+  // Calculate experience based on career anniversary progress
   useEffect(() => {
     const updateExperienceData = () => {
       const data = calculateExperienceData();
+      const milestones = getCareerMilestones();
       setExperienceData(data);
+      setCareerMilestones(milestones);
     };
 
     // Initial calculation
@@ -30,10 +33,17 @@ const ExperienceBar = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-center">
           
-          {/* Level Info */}
+          {/* Career Level Info */}
           <div className="flex items-center gap-4">
             <div className="text-green-400 font-mono font-bold text-sm">
-              LVL {experienceData.currentAge}
+              LVL {experienceData.currentLevel}
+            </div>
+            
+            {/* Career Phase Badge */}
+            <div className="bg-purple-900 px-2 py-1 border border-purple-400 rounded">
+              <span className="text-purple-300 font-mono text-xs font-bold">
+                {careerMilestones.careerPhase}
+              </span>
             </div>
             
             {/* Experience Bar */}
@@ -49,12 +59,24 @@ const ExperienceBar = () => {
               </div>
             </div>
             
-            {/* Days Until Birthday */}
+            {/* Days Until Career Anniversary */}
             <div className="text-yellow-400 font-mono text-xs">
-              {experienceData.daysUntilBirthday} exp to level up
+              {experienceData.daysUntilAnniversary} days to anniversary
+            </div>
+            
+            {/* Career Start Year */}
+            <div className="text-blue-400 font-mono text-xs">
+              Since 2018
             </div>
           </div>
           
+        </div>
+        
+        {/* Additional Career Info on Hover */}
+        <div className="text-center mt-1">
+          <span className="text-gray-500 font-mono text-xs">
+            Professional Developer • {careerMilestones.experienceYears} Experience
+          </span>
         </div>
       </div>
     </div>

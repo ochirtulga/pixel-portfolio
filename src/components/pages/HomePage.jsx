@@ -10,8 +10,9 @@ const HomePage = ({ onNavigate }) => {
   const [showButtons, setShowButtons] = useState(false);
 
   // The welcome message to be typed out
-  const welcomeText = `TO A PROFILE OF LEVEL ${currentLevel} ${CHARACTER_CONFIG.title}
-SPECIALIZING IN ${CHARACTER_CONFIG.specialization}`;
+  const welcomeText = `TO A PROFILE OF LVL ${currentLevel} ${CHARACTER_CONFIG.title}
+SPECIALIZING IN ${CHARACTER_CONFIG.specialization}
+${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
 
   // Typewriter effect
   useEffect(() => {
@@ -61,7 +62,7 @@ SPECIALIZING IN ${CHARACTER_CONFIG.specialization}`;
           
           {/* Retro computer terminal effect */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent opacity-5 animate-pulse"></div>
           </div>
         </div>
       </div>
@@ -72,13 +73,13 @@ SPECIALIZING IN ${CHARACTER_CONFIG.specialization}`;
       }`}>
         <PixelButton 
           onClick={() => onNavigate('projects')}
-          className={`animate-delay-50 ${showButtons ? 'animate-fade-in-up' : ''}`}
+          className={`animate-delay-100 ${showButtons ? 'animate-fade-in-up' : ''}`}
         >
           ⚔️ VIEW QUESTS
         </PixelButton>
         <PixelButton 
           onClick={() => onNavigate('contact')}
-          className={`animate-delay-100 ${showButtons ? 'animate-fade-in-up' : ''}`}
+          className={`animate-delay-200 ${showButtons ? 'animate-fade-in-up' : ''}`}
         >
           📮 SEND MESSAGE
         </PixelButton>
@@ -88,7 +89,7 @@ SPECIALIZING IN ${CHARACTER_CONFIG.specialization}`;
       {isTypingComplete && (
         <div className="mt-8 animate-fade-in animate-delay-500">
           <div className="text-xs text-gray-500 font-mono">
-            SYSTEM READY • LEVEL {currentLevel} ADVENTURER ONLINE
+            SYSTEM READY • LVL {currentLevel} ADVENTURER ONLINE • SINCE 2018
           </div>
           <div className="flex justify-center items-center gap-2 mt-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

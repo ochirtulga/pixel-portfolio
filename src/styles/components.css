@@ -2,489 +2,489 @@
    PIXEL BORDER SYSTEM
    ========================================================================== */
 
-.pixel-border {
-  border: var(--pixel-border);
-  image-rendering: pixelated;
-}
-
-.pixel-border-thick {
-  border: var(--pixel-border-thick);
-  image-rendering: pixelated;
-}
-
-.pixel-border-red {
-  border: var(--pixel-border-red);
-  image-rendering: pixelated;
-}
-
-.pixel-border-blue {
-  border: var(--pixel-border-blue);
-  image-rendering: pixelated;
-}
-
-.pixel-border-yellow {
-  border: var(--pixel-border-yellow);
-  image-rendering: pixelated;
-}
-
-/* ==========================================================================
-   PIXEL EFFECTS
-   ========================================================================== */
-
-.pixel-glow {
-  text-shadow: var(--pixel-glow);
-}
-
-.pixel-glow-red {
-  text-shadow: var(--pixel-glow-red);
-}
-
-.pixel-glow-blue {
-  text-shadow: var(--pixel-glow-blue);
-}
-
-.pixel-grid {
-  background-image: 
-    linear-gradient(90deg, #fff 1px, transparent 1px),
-    linear-gradient(#fff 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.05;
-}
-
-/* ==========================================================================
-   PIXEL BUTTON COMPONENT
-   ========================================================================== */
-
-.pixel-button {
-  border: var(--pixel-border);
-  padding: var(--pixel-spacing) calc(var(--pixel-spacing) * 2);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-base);
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  user-select: none;
-  image-rendering: pixelated;
-  touch-action: manipulation;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--pixel-spacing-sm);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Enhanced hover effects */
-.pixel-button:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 0 10px var(--pixel-green),
-    0 0 20px var(--pixel-green),
-    0 0 30px rgba(74, 222, 128, 0.3);
-}
-
-.pixel-button:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
-}
-
-/* Glowing border animation */
-.pixel-button::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, var(--pixel-green), var(--pixel-green-light), var(--pixel-green), var(--pixel-green-dark));
-  background-size: 200% 200%;
-  border-radius: inherit;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  animation: borderGlow 2s ease-in-out infinite;
-}
-
-.pixel-button:hover::before {
-  opacity: 0.8;
-}
-
-/* Shine effect on hover */
-.pixel-button::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: rotate(45deg) translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.pixel-button:hover::after {
-  transform: rotate(45deg) translateX(100%);
-}
-
-.pixel-button--active {
-  background-color: var(--pixel-green);
-  color: var(--pixel-gray-900);
-  border-color: var(--pixel-green-dark);
-  text-shadow: none;
-}
-
-.pixel-button--inactive {
-  background-color: var(--pixel-gray-900);
-  color: var(--pixel-green);
-  border-color: var(--pixel-green);
-}
-
-.pixel-button--hover {
-  background-color: var(--pixel-green-dark);
-  color: var(--pixel-gray-900);
-  text-shadow: none;
-}
-
-.pixel-button:disabled,
-.pixel-button--disabled {
-  background-color: var(--pixel-gray-600);
-  color: var(--pixel-gray-400);
-  border-color: var(--pixel-gray-500);
-  cursor: not-allowed;
-  opacity: 0.6;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.pixel-button:disabled:hover,
-.pixel-button--disabled:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* ==========================================================================
-   HEALTH BAR COMPONENT
-   ========================================================================== */
-
-.health-bar {
-  width: 128px;
-  height: 16px;
-  background-color: var(--pixel-gray-800);
-  border: var(--pixel-border);
-  position: relative;
-  overflow: hidden;
-  image-rendering: pixelated;
-}
-
-.health-bar__fill {
-  height: 100%;
-  transition: width 0.5s ease;
-  image-rendering: pixelated;
-}
-
-.health-bar__text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--pixel-gray-900);
-  font-weight: bold;
-  font-size: var(--pixel-font-size-xs);
-  font-family: var(--pixel-font);
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-}
-
-/* ==========================================================================
-   FORM COMPONENTS
-   ========================================================================== */
-
-.pixel-input {
-  background-color: var(--pixel-gray-900);
-  color: var(--pixel-green);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-base);
-  padding: var(--pixel-spacing-md);
-  border: var(--pixel-border);
-  image-rendering: pixelated;
-  transition: background-color 0.2s, border-color 0.2s;
-}
-
-.pixel-input:focus {
-  outline: none;
-  background-color: var(--pixel-gray-700);
-  border-color: var(--pixel-green-light);
-}
-
-.pixel-input::placeholder {
-  color: var(--pixel-gray-500);
-  font-family: var(--pixel-font);
-}
-
-.pixel-textarea {
-  background-color: var(--pixel-gray-900);
-  color: var(--pixel-green);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-base);
-  padding: var(--pixel-spacing-md);
-  border: var(--pixel-border);
-  image-rendering: pixelated;
-  resize: none;
-  transition: background-color 0.2s, border-color 0.2s;
-}
-
-.pixel-textarea:focus {
-  outline: none;
-  background-color: var(--pixel-gray-700);
-  border-color: var(--pixel-green-light);
-}
-
-.pixel-textarea::placeholder {
-  color: var(--pixel-gray-500);
-  font-family: var(--pixel-font);
-}
-
-/* ==========================================================================
-   CARD COMPONENTS
-   ========================================================================== */
-
-.pixel-card {
-  background-color: rgba(55, 65, 81, 0.8); /* gray-800 with opacity */
-  border: var(--pixel-border);
-  padding: var(--pixel-spacing-2xl);
-  image-rendering: pixelated;
-  transition: background-color 0.2s;
-}
-
-.pixel-card:hover {
-  background-color: rgba(55, 65, 81, 0.9);
-}
-
-.pixel-card__header {
-  background: var(--pixel-gradient-header);
-  padding: var(--pixel-spacing-lg);
-  border-bottom: var(--pixel-border);
-  margin: calc(var(--pixel-spacing-2xl) * -1) calc(var(--pixel-spacing-2xl) * -1) var(--pixel-spacing-2xl) calc(var(--pixel-spacing-2xl) * -1);
-}
-
-.pixel-card__title {
-  color: var(--pixel-green);
-  font-family: var(--pixel-font);
-  font-weight: bold;
-  font-size: var(--pixel-font-size-xl);
-  margin: 0;
-}
-
-/* ==========================================================================
-   DIALOGUE SYSTEM
-   ========================================================================== */
-
-.dialogue-box {
-  background-color: var(--pixel-gray-900);
-  border: var(--pixel-border);
-  padding: var(--pixel-spacing-lg);
-  border-radius: 8px;
-  position: relative;
-  image-rendering: pixelated;
-}
-
-.dialogue-box::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: var(--pixel-spacing-lg);
-  width: 16px;
-  height: 16px;
-  background-color: var(--pixel-gray-900);
-  border-left: var(--pixel-border);
-  border-top: var(--pixel-border);
-  transform: rotate(45deg);
-}
-
-.dialogue-text {
-  color: var(--pixel-gray-300);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-sm);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.dialogue-continue {
-  position: absolute;
-  bottom: var(--pixel-spacing-sm);
-  right: var(--pixel-spacing-md);
-  color: var(--pixel-green);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-xs);
-  animation: bounce 2s infinite;
-}
-
-/* ==========================================================================
-   SKILL TREE COMPONENTS
-   ========================================================================== */
-
-.skill-node {
-  width: 64px;
-  height: 64px;
-  border-radius: 4px;
-  border: 2px solid;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  transform-origin: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--pixel-font-size-2xl);
-  font-weight: bold;
-  position: relative;
-  image-rendering: pixelated;
-}
-
-.skill-node:hover {
-  transform: scale(1.1);
-}
-
-.skill-node--unlocked {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.skill-node--locked {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.skill-node--selected {
-  ring: 4px solid white;
-  transform: scale(1.1);
-}
-
-.skill-level-badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 20px;
-  height: 20px;
-  background-color: var(--pixel-purple);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--pixel-font-size-xs);
-  color: white;
-  font-weight: bold;
-  border: 2px solid var(--pixel-purple-dark);
-}
-
-/* ==========================================================================
-   QUEST/PROJECT CARDS
-   ========================================================================== */
-
-.quest-card {
-  background-color: rgba(55, 65, 81, 0.8);
-  border: var(--pixel-border);
-  padding: var(--pixel-spacing-2xl);
-  image-rendering: pixelated;
-  transition: all 0.2s ease;
-}
-
-.quest-card:hover {
-  background-color: rgba(55, 65, 81, 0.9);
-  transform: translateY(-2px);
-}
-
-.quest-status {
-  padding: var(--pixel-spacing-xs) var(--pixel-spacing-md);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-xs);
-  font-weight: bold;
-  border: var(--pixel-border);
-  image-rendering: pixelated;
-}
-
-.quest-status--complete {
-  background-color: var(--pixel-green);
-  color: var(--pixel-gray-900);
-  border-color: var(--pixel-green-dark);
-}
-
-.quest-status--progress {
-  background-color: var(--pixel-yellow);
-  color: var(--pixel-gray-900);
-  border-color: var(--pixel-yellow-dark);
-}
-
-.quest-status--planned {
-  background-color: var(--pixel-gray-600);
-  color: var(--pixel-gray-300);
-  border-color: var(--pixel-gray-500);
-}
-
-.difficulty-badge {
-  padding: var(--pixel-spacing-xs) var(--pixel-spacing-sm);
-  font-family: var(--pixel-font);
-  font-size: var(--pixel-font-size-xs);
-  font-weight: bold;
-  border: 2px solid;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.difficulty-badge--novice {
-  color: var(--pixel-gray-400);
-  border-color: var(--pixel-gray-400);
-}
-
-.difficulty-badge--apprentice {
-  color: var(--pixel-blue);
-  border-color: var(--pixel-blue);
-}
-
-.difficulty-badge--adept {
-  color: var(--pixel-purple);
-  border-color: var(--pixel-purple);
-}
-
-.difficulty-badge--master {
-  color: var(--pixel-yellow);
-  border-color: var(--pixel-yellow);
-}
-
-/* ==========================================================================
-   UTILITY CLASSES
-   ========================================================================== */
-
-.text-pixel {
-  font-family: var(--pixel-font);
-  image-rendering: pixelated;
-}
-
-.bg-pixel-pattern {
-  background-image: 
-    linear-gradient(45deg, var(--pixel-gray-800) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--pixel-gray-800) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--pixel-gray-800) 75%),
-    linear-gradient(-45deg, transparent 75%, var(--pixel-gray-800) 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-}
-
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.status-indicator--online {
-  background-color: var(--pixel-green);
-  animation: pulse 2s infinite;
-}
-
-.status-indicator--offline {
-  background-color: var(--pixel-gray-500);
-}
-
-.status-indicator--busy {
-  background-color: var(--pixel-red);
-  animation: pulse 2s infinite;
-}
+   .pixel-border {
+    border: var(--pixel-border);
+    image-rendering: pixelated;
+  }
+  
+  .pixel-border-thick {
+    border: var(--pixel-border-thick);
+    image-rendering: pixelated;
+  }
+  
+  .pixel-border-red {
+    border: var(--pixel-border-red);
+    image-rendering: pixelated;
+  }
+  
+  .pixel-border-blue {
+    border: var(--pixel-border-blue);
+    image-rendering: pixelated;
+  }
+  
+  .pixel-border-yellow {
+    border: var(--pixel-border-yellow);
+    image-rendering: pixelated;
+  }
+  
+  /* ==========================================================================
+     PIXEL EFFECTS
+     ========================================================================== */
+  
+  .pixel-glow {
+    text-shadow: var(--pixel-glow);
+  }
+  
+  .pixel-glow-red {
+    text-shadow: var(--pixel-glow-red);
+  }
+  
+  .pixel-glow-blue {
+    text-shadow: var(--pixel-glow-blue);
+  }
+  
+  .pixel-grid {
+    background-image: 
+      linear-gradient(90deg, #fff 1px, transparent 1px),
+      linear-gradient(#fff 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+  }
+  
+  /* ==========================================================================
+     PIXEL BUTTON COMPONENT
+     ========================================================================== */
+  
+  .pixel-button {
+    border: var(--pixel-border);
+    padding: var(--pixel-spacing) calc(var(--pixel-spacing) * 2);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-base);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    user-select: none;
+    image-rendering: pixelated;
+    touch-action: manipulation;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--pixel-spacing-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Enhanced hover effects */
+  .pixel-button:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0 0 10px var(--pixel-green),
+      0 0 20px var(--pixel-green),
+      0 0 30px rgba(74, 222, 128, 0.3);
+  }
+  
+  .pixel-button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Glowing border animation */
+  .pixel-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--pixel-green), var(--pixel-green-light), var(--pixel-green), var(--pixel-green-dark));
+    background-size: 200% 200%;
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: borderGlow 2s ease-in-out infinite;
+  }
+  
+  .pixel-button:hover::before {
+    opacity: 0.8;
+  }
+  
+  /* Shine effect on hover */
+  .pixel-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg) translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .pixel-button:hover::after {
+    transform: rotate(45deg) translateX(100%);
+  }
+  
+  .pixel-button--active {
+    background-color: var(--pixel-green);
+    color: var(--pixel-gray-900);
+    border-color: var(--pixel-green-dark);
+    text-shadow: none;
+  }
+  
+  .pixel-button--inactive {
+    background-color: var(--pixel-gray-900);
+    color: var(--pixel-green);
+    border-color: var(--pixel-green);
+  }
+  
+  .pixel-button--hover {
+    background-color: var(--pixel-green-dark);
+    color: var(--pixel-gray-900);
+    text-shadow: none;
+  }
+  
+  .pixel-button:disabled,
+  .pixel-button--disabled {
+    background-color: var(--pixel-gray-600);
+    color: var(--pixel-gray-400);
+    border-color: var(--pixel-gray-500);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .pixel-button:disabled:hover,
+  .pixel-button--disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* ==========================================================================
+     HEALTH BAR COMPONENT
+     ========================================================================== */
+  
+  .health-bar {
+    width: 128px;
+    height: 16px;
+    background-color: var(--pixel-gray-800);
+    border: var(--pixel-border);
+    position: relative;
+    overflow: hidden;
+    image-rendering: pixelated;
+  }
+  
+  .health-bar__fill {
+    height: 100%;
+    transition: width 0.5s ease;
+    image-rendering: pixelated;
+  }
+  
+  .health-bar__text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pixel-gray-900);
+    font-weight: bold;
+    font-size: var(--pixel-font-size-xs);
+    font-family: var(--pixel-font);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* ==========================================================================
+     FORM COMPONENTS
+     ========================================================================== */
+  
+  .pixel-input {
+    background-color: var(--pixel-gray-900);
+    color: var(--pixel-green);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-base);
+    padding: var(--pixel-spacing-md);
+    border: var(--pixel-border);
+    image-rendering: pixelated;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  
+  .pixel-input:focus {
+    outline: none;
+    background-color: var(--pixel-gray-700);
+    border-color: var(--pixel-green-light);
+  }
+  
+  .pixel-input::placeholder {
+    color: var(--pixel-gray-500);
+    font-family: var(--pixel-font);
+  }
+  
+  .pixel-textarea {
+    background-color: var(--pixel-gray-900);
+    color: var(--pixel-green);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-base);
+    padding: var(--pixel-spacing-md);
+    border: var(--pixel-border);
+    image-rendering: pixelated;
+    resize: none;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  
+  .pixel-textarea:focus {
+    outline: none;
+    background-color: var(--pixel-gray-700);
+    border-color: var(--pixel-green-light);
+  }
+  
+  .pixel-textarea::placeholder {
+    color: var(--pixel-gray-500);
+    font-family: var(--pixel-font);
+  }
+  
+  /* ==========================================================================
+     CARD COMPONENTS
+     ========================================================================== */
+  
+  .pixel-card {
+    background-color: rgba(55, 65, 81, 0.8); /* gray-800 with opacity */
+    border: var(--pixel-border);
+    padding: var(--pixel-spacing-2xl);
+    image-rendering: pixelated;
+    transition: background-color 0.2s;
+  }
+  
+  .pixel-card:hover {
+    background-color: rgba(55, 65, 81, 0.9);
+  }
+  
+  .pixel-card__header {
+    background: var(--pixel-gradient-header);
+    padding: var(--pixel-spacing-lg);
+    border-bottom: var(--pixel-border);
+    margin: calc(var(--pixel-spacing-2xl) * -1) calc(var(--pixel-spacing-2xl) * -1) var(--pixel-spacing-2xl) calc(var(--pixel-spacing-2xl) * -1);
+  }
+  
+  .pixel-card__title {
+    color: var(--pixel-green);
+    font-family: var(--pixel-font);
+    font-weight: bold;
+    font-size: var(--pixel-font-size-xl);
+    margin: 0;
+  }
+  
+  /* ==========================================================================
+     DIALOGUE SYSTEM
+     ========================================================================== */
+  
+  .dialogue-box {
+    background-color: var(--pixel-gray-900);
+    border: var(--pixel-border);
+    padding: var(--pixel-spacing-lg);
+    border-radius: 8px;
+    position: relative;
+    image-rendering: pixelated;
+  }
+  
+  .dialogue-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: var(--pixel-spacing-lg);
+    width: 16px;
+    height: 16px;
+    background-color: var(--pixel-gray-900);
+    border-left: var(--pixel-border);
+    border-top: var(--pixel-border);
+    transform: rotate(45deg);
+  }
+  
+  .dialogue-text {
+    color: var(--pixel-gray-300);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .dialogue-continue {
+    position: absolute;
+    bottom: var(--pixel-spacing-sm);
+    right: var(--pixel-spacing-md);
+    color: var(--pixel-green);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-xs);
+    animation: bounce 2s infinite;
+  }
+  
+  /* ==========================================================================
+     SKILL TREE COMPONENTS
+     ========================================================================== */
+  
+  .skill-node {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--pixel-font-size-2xl);
+    font-weight: bold;
+    position: relative;
+    image-rendering: pixelated;
+  }
+  
+  .skill-node:hover {
+    transform: scale(1.1);
+  }
+  
+  .skill-node--unlocked {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .skill-node--locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .skill-node--selected {
+    ring: 4px solid white;
+    transform: scale(1.1);
+  }
+  
+  .skill-level-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--pixel-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--pixel-font-size-xs);
+    color: white;
+    font-weight: bold;
+    border: 2px solid var(--pixel-purple-dark);
+  }
+  
+  /* ==========================================================================
+     QUEST/PROJECT CARDS
+     ========================================================================== */
+  
+  .quest-card {
+    background-color: rgba(55, 65, 81, 0.8);
+    border: var(--pixel-border);
+    padding: var(--pixel-spacing-2xl);
+    image-rendering: pixelated;
+    transition: all 0.2s ease;
+  }
+  
+  .quest-card:hover {
+    background-color: rgba(55, 65, 81, 0.9);
+    transform: translateY(-2px);
+  }
+  
+  .quest-status {
+    padding: var(--pixel-spacing-xs) var(--pixel-spacing-md);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-xs);
+    font-weight: bold;
+    border: var(--pixel-border);
+    image-rendering: pixelated;
+  }
+  
+  .quest-status--complete {
+    background-color: var(--pixel-green);
+    color: var(--pixel-gray-900);
+    border-color: var(--pixel-green-dark);
+  }
+  
+  .quest-status--progress {
+    background-color: var(--pixel-yellow);
+    color: var(--pixel-gray-900);
+    border-color: var(--pixel-yellow-dark);
+  }
+  
+  .quest-status--planned {
+    background-color: var(--pixel-gray-600);
+    color: var(--pixel-gray-300);
+    border-color: var(--pixel-gray-500);
+  }
+  
+  .difficulty-badge {
+    padding: var(--pixel-spacing-xs) var(--pixel-spacing-sm);
+    font-family: var(--pixel-font);
+    font-size: var(--pixel-font-size-xs);
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .difficulty-badge--novice {
+    color: var(--pixel-gray-400);
+    border-color: var(--pixel-gray-400);
+  }
+  
+  .difficulty-badge--apprentice {
+    color: var(--pixel-blue);
+    border-color: var(--pixel-blue);
+  }
+  
+  .difficulty-badge--adept {
+    color: var(--pixel-purple);
+    border-color: var(--pixel-purple);
+  }
+  
+  .difficulty-badge--master {
+    color: var(--pixel-yellow);
+    border-color: var(--pixel-yellow);
+  }
+  
+  /* ==========================================================================
+     UTILITY CLASSES
+     ========================================================================== */
+  
+  .text-pixel {
+    font-family: var(--pixel-font);
+    image-rendering: pixelated;
+  }
+  
+  .bg-pixel-pattern {
+    background-image: 
+      linear-gradient(45deg, var(--pixel-gray-800) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--pixel-gray-800) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--pixel-gray-800) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--pixel-gray-800) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+  
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .status-indicator--online {
+    background-color: var(--pixel-green);
+    animation: pulse 2s infinite;
+  }
+  
+  .status-indicator--offline {
+    background-color: var(--pixel-gray-500);
+  }
+  
+  .status-indicator--busy {
+    background-color: var(--pixel-red);
+    animation: pulse 2s infinite;
+  }
