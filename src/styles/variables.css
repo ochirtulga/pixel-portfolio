@@ -1,13 +1,79 @@
 :root {
-    --pixel-green: #4ade80;
-    --pixel-green-dark: #22c55e;
-    --pixel-green-light: #6ee7b7;
-    --pixel-gray-900: #1f2937;
-    --pixel-gray-800: #374151;
-    --pixel-gray-300: #d1d5db;
-    --pixel-gray-400: #9ca3af;
-    
-    --pixel-border: 2px solid var(--pixel-green);
-    --pixel-font: 'Courier New', monospace;
-    --pixel-spacing: 8px;
-  }
+  /* Core Color Palette */
+  --pixel-green: #4ade80;
+  --pixel-green-dark: #22c55e;
+  --pixel-green-light: #6ee7b7;
+  
+  /* Gray Scale */
+  --pixel-gray-900: #1f2937;
+  --pixel-gray-800: #374151;
+  --pixel-gray-700: #4b5563;
+  --pixel-gray-600: #6b7280;
+  --pixel-gray-500: #9ca3af;
+  --pixel-gray-400: #d1d5db;
+  --pixel-gray-300: #e5e7eb;
+  --pixel-gray-200: #f3f4f6;
+  --pixel-gray-100: #f9fafb;
+  
+  /* Status Colors */
+  --pixel-red: #ef4444;
+  --pixel-red-dark: #dc2626;
+  --pixel-blue: #3b82f6;
+  --pixel-blue-dark: #2563eb;
+  --pixel-yellow: #eab308;
+  --pixel-yellow-dark: #ca8a04;
+  --pixel-purple: #a855f7;
+  --pixel-purple-dark: #9333ea;
+  --pixel-orange: #f97316;
+  --pixel-orange-dark: #ea580c;
+  
+  /* Typography */
+  --pixel-font: 'Courier New', 'Press Start 2P', monospace;
+  --pixel-font-size-xs: 10px;
+  --pixel-font-size-sm: 12px;
+  --pixel-font-size-base: 14px;
+  --pixel-font-size-lg: 16px;
+  --pixel-font-size-xl: 18px;
+  --pixel-font-size-2xl: 24px;
+  --pixel-font-size-3xl: 32px;
+  --pixel-font-size-4xl: 48px;
+  
+  /* Spacing System */
+  --pixel-spacing-xs: 4px;
+  --pixel-spacing-sm: 6px;
+  --pixel-spacing: 8px;
+  --pixel-spacing-md: 12px;
+  --pixel-spacing-lg: 16px;
+  --pixel-spacing-xl: 20px;
+  --pixel-spacing-2xl: 24px;
+  --pixel-spacing-3xl: 32px;
+  
+  /* Border System */
+  --pixel-border: 2px solid var(--pixel-green);
+  --pixel-border-thick: 4px solid var(--pixel-green);
+  --pixel-border-red: 2px solid var(--pixel-red);
+  --pixel-border-blue: 2px solid var(--pixel-blue);
+  --pixel-border-yellow: 2px solid var(--pixel-yellow);
+  
+  /* Shadows and Effects */
+  --pixel-glow: 0 0 10px var(--pixel-green), 
+                0 0 20px var(--pixel-green), 
+                0 0 30px var(--pixel-green);
+  --pixel-glow-red: 0 0 10px var(--pixel-red), 
+                    0 0 20px var(--pixel-red);
+  --pixel-glow-blue: 0 0 10px var(--pixel-blue), 
+                     0 0 20px var(--pixel-blue);
+  
+  /* Gradients */
+  --pixel-gradient-bg: linear-gradient(to bottom, #312e81, #7c3aed, var(--pixel-gray-900));
+  --pixel-gradient-green: linear-gradient(to right, var(--pixel-green), var(--pixel-green-dark));
+  --pixel-gradient-header: linear-gradient(to right, var(--pixel-gray-900), var(--pixel-gray-800));
+  
+  /* Z-Index Scale */
+  --z-background: 0;
+  --z-content: 10;
+  --z-sidebar: 15;
+  --z-fixed: 20;
+  --z-modal: 30;
+  --z-notification: 50;
+}

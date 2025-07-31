@@ -23,37 +23,37 @@ const SkillsPage = () => {
 
   // Group skills by tier
   const skillsByTier = {
-    easy: allSkills.filter(skill => skill.tier === 'easy'),
-    normal: allSkills.filter(skill => skill.tier === 'normal'),
-    hard: allSkills.filter(skill => skill.tier === 'hard'),
-    godlike: allSkills.filter(skill => skill.tier === 'godlike')
+    novice: allSkills.filter(skill => skill.tier === 'novice'),
+    apprentice: allSkills.filter(skill => skill.tier === 'apprentice'),
+    adept: allSkills.filter(skill => skill.tier === 'adept'),
+    master: allSkills.filter(skill => skill.tier === 'master')
   };
 
   // Tier configurations
   const tierConfig = {
-    easy: {
-      name: 'EASY',
+    novice: {
+      name: 'NOVICE',
       bgColor: 'bg-green-100',
       borderColor: 'border-green-400',
       textColor: 'text-green-800',
       headerBg: 'bg-green-200'
     },
-    normal: {
-      name: 'NORMAL',
+    apprentice: {
+      name: 'APPRENTICE',
       bgColor: 'bg-yellow-100',
       borderColor: 'border-yellow-400',
       textColor: 'text-yellow-800',
       headerBg: 'bg-yellow-200'
     },
-    hard: {
-      name: 'HARD',
+    adept: {
+      name: 'ADEPT',
       bgColor: 'bg-orange-100',
       borderColor: 'border-orange-400',
       textColor: 'text-orange-800',
       headerBg: 'bg-orange-200'
     },
-    godlike: {
-      name: 'GODLIKE',
+    master: {
+      name: 'MASTER',
       bgColor: 'bg-red-100',
       borderColor: 'border-red-400',
       textColor: 'text-red-800',
@@ -106,13 +106,13 @@ const SkillsPage = () => {
               {/* Skill Lanes Container */}
               <div className="bg-yellow-50 p-6 rounded border-2 border-yellow-600 shadow-inner">
                 <div className="space-y-6">
-                  {/* Easy Lane */}
-                  <div className={`${tierConfig.easy.bgColor} ${tierConfig.easy.borderColor} border-2 rounded-lg p-3`}>
-                    <div className={`${tierConfig.easy.headerBg} ${tierConfig.easy.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
-                      🟢 {tierConfig.easy.name} TIER
+                  {/* novice Lane */}
+                  <div className={`${tierConfig.novice.bgColor} ${tierConfig.novice.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.novice.headerBg} ${tierConfig.novice.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
+                      🟢 {tierConfig.novice.name} TIER
                     </div>
                     <div className="grid grid-cols-3 gap-4 place-items-center">
-                      {skillsByTier.easy.map(skill => (
+                      {skillsByTier.novice.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
                             skill={skill}
@@ -121,7 +121,7 @@ const SkillsPage = () => {
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
                           <div className="text-center mt-1">
-                            <span className={`text-xs font-mono font-bold ${tierConfig.easy.textColor}`}>
+                            <span className={`text-xs font-mono font-bold ${tierConfig.novice.textColor}`}>
                               {skill.name}
                             </span>
                           </div>
@@ -130,13 +130,13 @@ const SkillsPage = () => {
                     </div>
                   </div>
 
-                  {/* Normal Lane */}
-                  <div className={`${tierConfig.normal.bgColor} ${tierConfig.normal.borderColor} border-2 rounded-lg p-3`}>
-                    <div className={`${tierConfig.normal.headerBg} ${tierConfig.normal.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
-                      🟡 {tierConfig.normal.name} TIER
+                  {/* apprentice Lane */}
+                  <div className={`${tierConfig.apprentice.bgColor} ${tierConfig.apprentice.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.apprentice.headerBg} ${tierConfig.apprentice.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
+                      🟡 {tierConfig.apprentice.name} TIER
                     </div>
                     <div className="grid grid-cols-3 gap-4 place-items-center">
-                      {skillsByTier.normal.map(skill => (
+                      {skillsByTier.apprentice.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
                             skill={skill}
@@ -145,7 +145,7 @@ const SkillsPage = () => {
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
                           <div className="text-center mt-1">
-                            <span className={`text-xs font-mono font-bold ${tierConfig.normal.textColor}`}>
+                            <span className={`text-xs font-mono font-bold ${tierConfig.apprentice.textColor}`}>
                               {skill.name}
                             </span>
                           </div>
@@ -154,13 +154,13 @@ const SkillsPage = () => {
                     </div>
                   </div>
 
-                  {/* Hard Lane */}
-                  <div className={`${tierConfig.hard.bgColor} ${tierConfig.hard.borderColor} border-2 rounded-lg p-3`}>
-                    <div className={`${tierConfig.hard.headerBg} ${tierConfig.hard.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
-                      🟠 {tierConfig.hard.name} TIER
+                  {/* adept Lane */}
+                  <div className={`${tierConfig.adept.bgColor} ${tierConfig.adept.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.adept.headerBg} ${tierConfig.adept.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
+                      🟠 {tierConfig.adept.name} TIER
                     </div>
                     <div className="grid grid-cols-3 gap-4 place-items-center">
-                      {skillsByTier.hard.map(skill => (
+                      {skillsByTier.adept.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
                             skill={skill}
@@ -169,7 +169,7 @@ const SkillsPage = () => {
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
                           <div className="text-center mt-1">
-                            <span className={`text-xs font-mono font-bold ${tierConfig.hard.textColor}`}>
+                            <span className={`text-xs font-mono font-bold ${tierConfig.adept.textColor}`}>
                               {skill.name}
                             </span>
                           </div>
@@ -178,13 +178,13 @@ const SkillsPage = () => {
                     </div>
                   </div>
 
-                  {/* Godlike Lane */}
-                  <div className={`${tierConfig.godlike.bgColor} ${tierConfig.godlike.borderColor} border-2 rounded-lg p-3`}>
-                    <div className={`${tierConfig.godlike.headerBg} ${tierConfig.godlike.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
-                      🔴 {tierConfig.godlike.name} TIER
+                  {/* master Lane */}
+                  <div className={`${tierConfig.master.bgColor} ${tierConfig.master.borderColor} border-2 rounded-lg p-3`}>
+                    <div className={`${tierConfig.master.headerBg} ${tierConfig.master.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>
+                      🔴 {tierConfig.master.name} TIER
                     </div>
                     <div className="grid grid-cols-3 gap-4 place-items-center">
-                      {skillsByTier.godlike.map(skill => (
+                      {skillsByTier.master.map(skill => (
                         <div key={skill.id} className="flex flex-col items-center">
                           <SkillNode 
                             skill={skill}
@@ -193,7 +193,7 @@ const SkillsPage = () => {
                             arePrerequisitesMet={arePrerequisitesMet}
                           />
                           <div className="text-center mt-2">
-                            <span className={`text-xs font-mono font-bold ${tierConfig.godlike.textColor}`}>
+                            <span className={`text-xs font-mono font-bold ${tierConfig.master.textColor}`}>
                               {skill.name}
                             </span>
                           </div>
