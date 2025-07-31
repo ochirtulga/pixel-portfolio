@@ -63,7 +63,7 @@ const SkillsPage = () => {
 
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-4xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
+      <h2 className="text-3xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
         📗 SKILL GRIMOIRE
       </h2>
       
@@ -74,7 +74,7 @@ const SkillsPage = () => {
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-yellow-900 to-yellow-700 rounded-l-lg border-r-2 border-yellow-600"></div>
           
           {/* Category Bookmarks */}
-          <div className="ml-6 flex border-b-4 border-yellow-800 overflow-x-auto">
+          <div className="ml-3 flex border-b-4 border-yellow-800 overflow-x-auto">
             {Object.entries(skillCategories).map(([key, category]) => (
               <button
                 key={key}
@@ -83,7 +83,7 @@ const SkillsPage = () => {
                   setSelectedSkill(null);
                 }}
                 className={`
-                  px-3 py-2 font-bold font-mono text-sm flex items-center gap-2 border-r-2 border-yellow-800 transition-all duration-300 flex-shrink-0 min-w-max
+                px-7 py-2 font-bold font-mono text-sm flex items-center gap-2 border-r-2 border-yellow-800 transition-all duration-300 flex-shrink-0 min-w-max
                   ${selectedCategory === key 
                     ? `bg-${category.color}-400 text-white shadow-inner` 
                     : 'bg-yellow-300 hover:bg-yellow-200 text-yellow-900'
@@ -105,7 +105,7 @@ const SkillsPage = () => {
               
               {/* Skill Lanes Container */}
               <div className="bg-yellow-50 p-6 rounded border-2 border-yellow-600 shadow-inner">
-                <div className="space-y-6">
+                <div className="space-y-2">
                   {/* novice Lane */}
                   <div className={`${tierConfig.novice.bgColor} ${tierConfig.novice.borderColor} border-2 rounded-lg p-3`}>
                     <div className={`${tierConfig.novice.headerBg} ${tierConfig.novice.textColor} px-3 py-2 rounded-md mb-3 text-center font-mono font-bold text-lg`}>

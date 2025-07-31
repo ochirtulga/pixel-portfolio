@@ -25,11 +25,11 @@ const Navigation = ({ currentSection, onSectionChange }) => {
               <span className="text-yellow-400 font-mono text-xs bg-gray-800 px-2 py-1 rounded border border-yellow-600">
                 LVL {currentLevel}
               </span>
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" title="Online"></div>
             </div>
             <span className="text-gray-400 font-mono text-xs">
-              {CHARACTER_CONFIG.title}
+              {CHARACTER_CONFIG.title} 
             </span>
+            <span className="text-gray-400 font-mono text-xs"> since 2018 </span>
           </div>
         </div>
 

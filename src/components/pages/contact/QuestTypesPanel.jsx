@@ -17,7 +17,7 @@ const QuestTypesPanel = ({ questTypes }) => {
           🎯 Available Quests
         </h3>
       </div>
-      <div className="p-4 space-y-2 text-xs font-mono">
+      <div className="p-4 space-y-2 text-sm font-mono">
         {quests.map((quest, index) => (
           <div key={index} className="flex items-center gap-2">
             <span>{quest.icon}</span>

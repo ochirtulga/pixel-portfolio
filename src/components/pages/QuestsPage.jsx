@@ -40,7 +40,7 @@ const QuestsPage = () => {
   };
 
   return (
-    <div className="py-12 animate-fade-in">
+    <div className="py-4 animate-fade-in">
       <h2 className="text-4xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
         ⚔️ QUEST LOG
       </h2>

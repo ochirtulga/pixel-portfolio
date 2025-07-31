@@ -17,7 +17,7 @@ const QuickConnectPanel = ({ onSocialClick }) => {
         </h3>
       </div>
       <div className="p-4">
-        <p className="text-gray-300 font-mono text-xs mb-4">
+        <p className="text-gray-300 font-mono text-sm mb-4">
           Bypass dialogue for direct guild connections:
         </p>
         <div className="grid grid-cols-2 gap-2">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HomePage, AboutPage, QuestsPage, SkillsPage, ContactPage } from './components/pages';
 import { Navigation, Background, HealthManaDisplay, ExperienceBar } from './components/layout';
+import { AudioToggleButton } from './components/common';
 import '../src/styles/globals.css';
 
 const App = () => {
@@ -33,6 +34,9 @@ const App = () => {
     <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-gray-900 relative overflow-hidden">
       {/* Animated Background */}
       <Background />
+
+      {/* Audio Toggle Button */}
+      <AudioToggleButton />
 
       {/* Navigation */}
       <Navigation 

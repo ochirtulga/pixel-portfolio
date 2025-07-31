@@ -107,7 +107,6 @@ src/
   
   /* Spacing System */
   --pixel-spacing: 8px;
-  --pixel-spacing-lg: 16px;
   
   /* Component Tokens */
   --pixel-border: 2px solid var(--pixel-green);

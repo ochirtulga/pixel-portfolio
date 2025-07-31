@@ -13,7 +13,7 @@ const AboutPage = () => {
   const currentLevel = calculateCurrentLevel();
   const careerMilestones = getCareerMilestones();
 
-  const fullText = `A seasoned Backend Adventurer with ${currentLevel}+ years of professional experience, who has mastered the arcane arts of microservices architecture and RESTful API design since beginning the coding journey in 2018. Known throughout the digital realm for crafting scalable systems and optimizing server performance in the most challenging environments. This ${careerMilestones.careerPhase}-level developer has earned legendary status among peers for delivering robust, high-performance solutions that stand the test of time.`;
+  const fullText = `A seasoned Backend Adventurer with ${currentLevel} years of professional experience, who has mastered the arcane arts of microservices architecture and RESTful API design since beginning the coding journey in 2018. Known throughout the digital realm for crafting scalable systems and optimizing server performance in the most challenging environments. This ${careerMilestones.careerPhase}-level developer has earned legendary status among peers for delivering robust, high-performance solutions that stand the test of time.`;
 
   // Enhanced character stats with descriptions
   const characterStats = [
@@ -169,7 +169,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="py-12 animate-fade-in">
+    <div className="py-4 animate-fade-in">
       {/* Enhanced Header */}
       <div className="text-center mb-12">
         <div className="text-6xl mb-4 animate-bounce">👨🏻‍💻</div>
@@ -231,7 +231,7 @@ const AboutPage = () => {
           {/* Backstory Section with Skippable Typewriter */}
           <div className="bg-gray-800 bg-opacity-90 pixel-border">
             <div className="bg-gradient-to-r from-purple-900 to-purple-800 px-6 py-4 border-b-2 border-purple-400">
-              <h3 className="text-2xl text-purple-400 font-mono font-bold">🎭 BACKSTORY</h3>
+              <h3 className="text-2xl text-purple-400 font-mono font-bold">📜 BACKSTORY</h3>
             </div>
             
             <div className="p-6">

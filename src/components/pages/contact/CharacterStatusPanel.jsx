@@ -15,23 +15,23 @@ const CharacterStatusPanel = ({
       </div>
       <div className="p-4 space-y-3">
         <div className="flex justify-between items-center">
-          <span className="text-gray-300 font-mono text-xs">Status:</span>
+          <span className="text-gray-300 font-mono text-sm">Status:</span>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             <span className="text-green-400 font-mono font-bold text-xs">{status}</span>
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-gray-300 font-mono text-xs">Location:</span>
-          <span className="text-blue-400 font-mono font-bold text-xs">{location}</span>
+          <span className="text-gray-300 font-mono text-sm">Location:</span>
+          <span className="text-blue-400 font-mono font-bold text-sm">{location}</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-gray-300 font-mono text-xs">Response Time:</span>
-          <span className="text-yellow-400 font-mono font-bold text-xs">{responseTime}</span>
+          <span className="text-gray-300 font-mono text-sm">Response Time:</span>
+          <span className="text-yellow-400 font-mono font-bold text-sm">{responseTime}</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-gray-300 font-mono text-xs">Languages:</span>
-          <span className="text-purple-400 font-mono font-bold text-xs">{languages}</span>
+          <span className="text-gray-300 font-mono text-sm">Languages:</span>
+          <span className="text-purple-400 font-mono font-bold text-sm">{languages}</span>
         </div>
       </div>
     </div>

@@ -11,8 +11,8 @@ const HealthManaDisplay = () => (
     </div>
     
     {/* Health Bar */}
-    <div className="flex items-center gap-3">
-      <span className="text-red-400 font-mono font-bold text-sm min-w-[24px]">HP</span>
+    <div className="flex-center items-start gap-3">
+      <span className="text-red-400 font-mono font-bold text-sm min-w-[24px] mt-0.5">HP</span>
       <div className="flex-1">
         <HealthBar 
           value={100} 
@@ -24,8 +24,8 @@ const HealthManaDisplay = () => (
     </div>
     
     {/* Mana Bar */}
-    <div className="flex items-center gap-3">
-      <span className="text-blue-400 font-mono font-bold text-sm min-w-[24px]">MP</span>
+    <div className="flex-center items-start gap-3">
+      <span className="text-blue-400 font-mono font-bold text-sm min-w-[24px] mt-0.5">MP</span>
       <div className="flex-1">
         <HealthBar 
           value={100} 
@@ -37,8 +37,8 @@ const HealthManaDisplay = () => (
     </div>
 
     {/* Skill Bar */}
-    <div className="flex items-center gap-3">
-      <span className="text-green-400 font-mono font-bold text-sm min-w-[24px]">XP</span>
+    <div className="flex-center items-start gap-3">
+      <span className="text-green-400 font-mono font-bold text-sm min-w-[24px] mt-0.5">XP</span>
       <div className="flex-1">
         <HealthBar 
           value={100} 
@@ -50,8 +50,8 @@ const HealthManaDisplay = () => (
     </div>
 
     {/* Availability Bar */}
-    <div className="flex items-center gap-3">
-      <span className="text-yellow-400 font-mono font-bold text-sm min-w-[24px]">AV</span>
+    <div className="flex-center items-start gap-3">
+      <span className="text-yellow-400 font-mono font-bold text-sm min-w-[24px] mt-0.5">AV</span>
       <div className="flex-1">
         <HealthBar 
           value={100} 

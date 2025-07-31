@@ -50,10 +50,10 @@ const ExperienceBar = () => {
             <div className="flex items-center gap-2">
               <div className="w-96 h-4 bg-gray-800 pixel-border relative overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-yellow-400 to-orange-400 transition-all duration-1000 ease-out"
+                  className="h-full bg-gradient-to-r from-purple-400 to-orange-400 transition-all duration-1000 ease-out"
                   style={{ width: `${experienceData.percentage}%` }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center text-gray-900 font-bold font-mono text-xs">
+                <div className="absolute inset-0 flex items-center justify-center text-white-900 font-bold font-mono text-sm">
                   {Math.floor(experienceData.percentage)}% to LVL {experienceData.nextLevel}
                 </div>
               </div>
@@ -63,13 +63,7 @@ const ExperienceBar = () => {
             <div className="text-yellow-400 font-mono text-xs">
               {experienceData.daysUntilAnniversary} exp to reach next level
             </div>
-            
-            {/* Career Start Year */}
-            <div className="text-blue-400 font-mono text-xs">
-              Since 2018
-            </div>
           </div>
-          
         </div>
       </div>
     </div>

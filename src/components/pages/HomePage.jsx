@@ -10,9 +10,9 @@ const HomePage = ({ onNavigate }) => {
   const [showButtons, setShowButtons] = useState(false);
 
   // The welcome message to be typed out
-  const welcomeText = `TO A PROFILE OF LVL ${currentLevel} ${CHARACTER_CONFIG.title}
+  const welcomeText = `TO A PROFILE OF LEVEL ${currentLevel} ${CHARACTER_CONFIG.title}
 SPECIALIZING IN ${CHARACTER_CONFIG.specialization}
-${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
+${currentLevel} YEARS OF PROFESSIONAL EXPERIENCE`;
 
   // Typewriter effect
   useEffect(() => {
@@ -26,9 +26,7 @@ ${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
     } else {
       setIsTypingComplete(true);
       // Show buttons after a short delay when typing is complete
-      setTimeout(() => {
-        setShowButtons(true);
-      }, 500);
+      setShowButtons(true);
     }
   }, [currentIndex, welcomeText]);
 
@@ -68,7 +66,7 @@ ${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
       </div>
       
       {/* Action Buttons with Staggered Animation */}
-      <div className={`flex justify-center gap-4 transition-all duration-500 ${
+      <div className={`flex justify-center gap-4 mb-8 transition-all duration-500 ${
         showButtons ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
       }`}>
         <PixelButton 
@@ -79,7 +77,7 @@ ${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
         </PixelButton>
         <PixelButton 
           onClick={() => onNavigate('contact')}
-          className={`animate-delay-200 ${showButtons ? 'animate-fade-in-up' : ''}`}
+          className={`animate-delay-150 ${showButtons ? 'animate-fade-in-up' : ''}`}
         >
           📮 SEND MESSAGE
         </PixelButton>
@@ -87,7 +85,7 @@ ${currentLevel}+ YEARS OF PROFESSIONAL EXPERIENCE`;
       
       {/* Retro Terminal Effects */}
       {isTypingComplete && (
-        <div className="mt-8 animate-fade-in animate-delay-500">
+        <div className="animate-fade-in animate-delay-500">
           <div className="text-xs text-gray-500 font-mono">
             SYSTEM READY • LVL {currentLevel} ADVENTURER ONLINE • SINCE 2018
           </div>

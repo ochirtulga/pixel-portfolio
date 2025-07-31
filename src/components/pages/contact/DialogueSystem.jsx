@@ -133,7 +133,7 @@ const DialogueSystem = ({
           {/* Info text section */}
           {currentNode.info && (
             <div className="mt-3 p-3 bg-blue-900 bg-opacity-50 rounded border border-blue-400">
-              <p className="text-blue-300 font-mono text-xs min-h-[16px]">
+              <p className="text-blue-300 font-mono text-sm min-h-[16px]">
                 {displayedInfo}
                 {isTypingComplete && currentNode.info && !isInfoTypingComplete && (
                   <span className="animate-pulse text-blue-400 ml-1">|</span>
@@ -143,23 +143,23 @@ const DialogueSystem = ({
           )}
 
           {/* Continue indicator when typing is complete */}
-          {((isTypingComplete && !currentNode.info) || (isInfoTypingComplete)) && !showOptions && (
+          {((isTypingComplete && !currentNode.info) || (isInfoTypingComplete)) && showOptions && (
             <div className="absolute bottom-2 right-3 animate-bounce">
-              <span className="text-green-400 font-mono text-xs">▼</span>
+              <span className="text-green-400 font-mono text-sm">▼</span>
             </div>
           )}
 
           {/* Click to skip indicator during typing */}
           {(!isTypingComplete || (currentNode.info && !isInfoTypingComplete)) && (
-            <div className="absolute bottom-2 left-3">
-              <span className="text-gray-500 font-mono text-xs opacity-60">Click to skip</span>
+            <div className="absolute top-2 right-3">
+              <span className="text-gray-500 font-mono text-sm opacity-60">Click to skip</span>
             </div>
           )}
         </div>
 
         {/* Dialogue Options */}
         <div className={`space-y-3 transition-all duration-500 ${showOptions ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-          <h4 className="text-green-400 font-mono font-bold text-sm">Choose your response:</h4>
+          <h4 className="text-green-400 font-mono font-bold text-base">Choose your response:</h4>
           {currentNode.options.map((option, index) => (
             <div 
               key={option.id}
