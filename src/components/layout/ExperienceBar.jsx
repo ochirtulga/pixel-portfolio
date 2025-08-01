@@ -117,17 +117,20 @@ const ExperienceBar = () => {
             </div>
 
             {/* Desktop status row */}
-            <div className="flex items-center justify-center gap-6 pt-1 border-t border-gray-600">
-              {/* Online Status */}
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-green-400 font-mono text-xs font-bold">ONLINE</span>
-              </div>
+            <div className="flex items-center justify-between gap-6 pt-1 border-t border-gray-600">
               
+              {/* Online Status */}
               {/* Available Status */}
-              <div className="text-center">
+              <div className="flex justify-center text-center gap-2">
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-green-400 font-mono text-xs font-bold">ONLINE -</span>
                 <span className="text-yellow-400 font-mono text-xs font-bold">
                   Available for New Quests
+                </span>
+              </div>
+              <div>
+                <span className="text-yellow-400 font-mono text-xs font-bold">
+                  Built with ❤️ and lots of ☕ by Ochirtulga Namjim
                 </span>
               </div>
             </div>

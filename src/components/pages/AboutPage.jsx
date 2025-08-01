@@ -269,7 +269,7 @@ const AboutPage = () => {
   return (
     <div className="py-8 animate-fade-in">
       {/* Enhanced Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-8">
         <div className="text-6xl mb-4 animate-bounce">👨🏻‍💻</div>
         <h2 className="text-4xl font-bold text-green-400 font-mono mb-4 pixel-glow">
           📜 CHARACTER PROFILE

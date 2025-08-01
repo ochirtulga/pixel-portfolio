@@ -178,7 +178,7 @@ const SkillsPage = () => {
         {/* Mobile Skill Detail Modal */}
         {showMobilePanel && selectedSkill && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
-            <div className="bg-yellow-50 rounded-lg border-4 border-yellow-800 w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <div className="bg-yellow-50 rounded-lg border-4 border-yellow-800 w-full max-w-md max-h-[70vh] overflow-y-auto">
               {/* Modal Header */}
               <div className="sticky top-0 bg-yellow-200 border-b-2 border-yellow-600 p-3 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-yellow-900 font-mono">Skill Details</h3>
@@ -232,7 +232,7 @@ const SkillsPage = () => {
 
   // Desktop: Original layout
   return (
-    <div className="py-4 animate-fade-in">
+    <div className="py-8 animate-fade-in">
       <h2 className="text-3xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
         📗 SKILL GRIMOIRE
       </h2>

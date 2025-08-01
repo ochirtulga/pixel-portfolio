@@ -3,7 +3,6 @@ import { PixelButton } from '../common';
 import { enhancedQuests } from '../../data/projects';
 
 const QuestsPage = () => {
-  const [selectedQuest, setSelectedQuest] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [expandedQuest, setExpandedQuest] = useState(null);
 
@@ -60,10 +59,16 @@ const QuestsPage = () => {
   if (isMobile) {
     return (
       <div className="py-4 animate-fade-in">
-        <h2 className="text-2xl font-bold text-green-400 font-mono mb-6 pixel-glow text-center">
+        <h2 className="text-2xl font-bold text-green-400 font-mono mb-2 pixel-glow text-center">
           ⚔️ QUEST LOG
         </h2>
         
+        {/* Inspirational Quote */}
+        <div className="mb-4 text-center">
+          <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
+            “"In the realm of code, every bug is a boss battle, and every feature is a quest completed."” – Ochi
+          </p>
+        </div>
         {/* Mobile Quest Cards */}
         <div className="space-y-4 px-2">
           {enhancedQuests.map((quest) => (
@@ -205,6 +210,13 @@ const QuestsPage = () => {
               </div>
             </div>
           </div>
+          
+          {/* Inspirational Quote */}
+          <div className="mt-4 text-center">
+            <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
+              “A hero is someone who has given their life to something bigger than oneself.” – Joseph Campbell
+            </p>
+          </div>
         </div>
 
         {/* Mobile Difficulty Legend */}
@@ -239,11 +251,16 @@ const QuestsPage = () => {
 
   // Desktop: Original layout
   return (
-    <div className="py-4 animate-fade-in">
-      <h2 className="text-4xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
+    <div className="py-8 animate-fade-in">
+      <h2 className="text-4xl font-bold text-green-400 font-mono mb-4 pixel-glow text-center">
         ⚔️ QUEST LOG
       </h2>
-      
+      {/* Inspirational Quote */}
+      <div className="mb-4 text-center">
+        <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
+          “"In the realm of code, every bug is a boss battle, and every feature is a quest completed."” – Ochi
+        </p>
+      </div>
       <div className="grid gap-6">
         {enhancedQuests.map((quest) => (
           <div key={quest.id} className="bg-gray-800 bg-opacity-80 pixel-border hover:bg-opacity-90 transition-all">
@@ -357,6 +374,12 @@ const QuestsPage = () => {
           <h4 className="text-green-400 font-mono font-bold text-sm mb-2">XP EARNED</h4>
           <p className="text-purple-400 font-mono text-xl font-bold">2,050</p>
         </div>
+      </div>
+      {/* Inspirational Quote */}
+      <div className="text-center">
+        <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
+          “A hero is someone who has given their life to something bigger than oneself.” – Joseph Campbell
+        </p>
       </div>
     </div>
   );
