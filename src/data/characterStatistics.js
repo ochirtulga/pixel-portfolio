@@ -48,7 +48,14 @@ export const characterStats = [
     },
     {
       key: 'impact',
-      label: 'USERS SERVED',
+      label: 'HIGHEST DPS',
+      value: CHARACTER_CONFIG.stats.highestDps,
+      description: 'Highest damage per second achieved',
+      icon: '💥'
+    },
+    {
+      key: 'impact',
+      label: 'LIVES SAVED',
       value: CHARACTER_CONFIG.stats.livesSaved,
       description: 'Lives improved through scalable backend solutions',
       icon: '👥'

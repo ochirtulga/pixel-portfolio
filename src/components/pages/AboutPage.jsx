@@ -73,7 +73,7 @@ const AboutPage = ({ onNavigate }) => {
   };
 
   if (isMobile) {
-    // Mobile Layout: Backstory first, then stats, then achievements
+    // Mobile Layout: Backstory first, then quest history, then stats, then achievements
     return (
       <div className="py-4 animate-fade-in">
         {/* Enhanced Header */}
@@ -143,8 +143,41 @@ const AboutPage = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Mobile Character Stats */}
+        {/* Mobile Quest History Section - Simple */}
         <div className={`mb-6 transition-all duration-500 ${showStats ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}`}>
+          <div className="bg-gray-800 bg-opacity-90 pixel-border">
+            <div className="bg-gradient-to-r from-blue-900 to-blue-800 px-4 py-3 border-b-2 border-blue-400">
+              <h3 className="text-lg font-bold text-blue-400 font-mono">💼 PROFESSIONAL GUILDS </h3>
+            </div>
+            <div className="p-4 space-y-3">
+              {/* Senior Engineer */}
+              <div className="flex justify-between items-start p-2 bg-gray-900 bg-opacity-30 rounded">
+                <div>
+                  <h4 className="text-green-400 font-mono font-bold text-xs">Master Logicwright</h4>
+                  <div className="text-purple-400 font-mono text-xs">Thermo Fisher Scientific</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-gray-400 font-mono text-xs">07/2022 - 03/2025</div>
+                </div>
+              </div>
+
+              {/* Software Developer */}
+              <div className="flex justify-between items-start p-2 bg-gray-900 bg-opacity-30 rounded">
+                <div>
+                  <h4 className="text-green-400 font-mono font-bold text-xs">Apprentice Codeforger</h4>
+                  <div className="text-purple-400 font-mono text-xs">Khan Bank JSC</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-gray-400 font-mono text-xs">02/2018 - 09/2021</div>
+                  <div className="text-yellow-400 font-mono text-xs">3.5 years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Character Stats */}
+        <div className={`mb-6 transition-all duration-700 ${showStats ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}`}>
           <div className="bg-gray-800 bg-opacity-90 pixel-border">
             <div className="bg-gradient-to-r from-green-900 to-green-800 px-4 py-3 border-b-2 border-green-400">
               <h3 className="text-lg font-bold text-green-400 font-mono">📊 CHARACTER STATS</h3>
@@ -376,7 +409,6 @@ const AboutPage = ({ onNavigate }) => {
           </div>
 
           {/* Current Status & Actions */}
-          
           <div className={`transition-all duration-900 ${showAchievements ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}`}>
             <div className="bg-gray-800 bg-opacity-90 pixel-border">
               <div className="bg-gradient-to-r from-blue-900 to-blue-800 px-6 py-4 border-b-2 border-blue-400">
@@ -424,9 +456,32 @@ const AboutPage = ({ onNavigate }) => {
         
         {/* Character Stats Panel - NOW ON RIGHT */}
         <div className={`lg:col-span-1 transition-all duration-500 ${showStats ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}`}>
+          {/* Simple Experience Section */}
+          <div className="bg-gray-800 bg-opacity-90 pixel-border mb-6">
+            <div className="bg-gradient-to-r from-blue-900 to-blue-800 px-6 py-4 border-b-2 border-blue-400">
+              <h3 className="text-xl text-blue-400 font-mono font-bold">💼 PROFESSIONAL GUILDS </h3>
+            </div>
+            <div className="p-6 space-y-4">
+              {/* Senior Engineer */}
+              <div className="border-l-4 border-yellow-400 pl-4 bg-gray-900 bg-opacity-30 p-3 rounded">
+                <h4 className="text-green-400 font-mono font-bold text-sm">Master Logicwright</h4>
+                <div className="text-purple-400 font-mono text-sm">Thermo Fisher Scientific</div>
+                <div className="text-gray-400 font-mono text-xs mt-1">07/2022 - 03/2025</div>
+              </div>
+
+              {/* Software Developer */}
+              <div className="border-l-4 border-blue-400 pl-4 bg-gray-900 bg-opacity-30 p-3 rounded">
+                <h4 className="text-green-400 font-mono font-bold text-sm">Apprentice Codeforger</h4>
+                <div className="text-purple-400 font-mono text-sm">Khan Bank JSC</div>
+                <div className="text-gray-400 font-mono text-xs mt-1">02/2018 - 09/2021</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Character Stats */}
           <div className="bg-gray-800 bg-opacity-90 pixel-border">
             <div className="bg-gradient-to-r from-green-900 to-green-800 px-6 py-4 border-b-2 border-green-400">
-              <h3 className="text-2xl text-green-400 font-mono font-bold flex items-center gap-2">
+              <h3 className="text-xl text-green-400 font-mono font-bold flex items-center gap-2">
                 📊 CHARACTER STATS
               </h3>
             </div>
@@ -461,4 +516,4 @@ const AboutPage = ({ onNavigate }) => {
   );
 };
 
-export default AboutPage; 
+export default AboutPage;
