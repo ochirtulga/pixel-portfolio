@@ -75,7 +75,7 @@ const AboutPage = ({ onNavigate }) => {
   if (isMobile) {
     // Mobile Layout: Backstory first, then stats, then achievements
     return (
-      <div className="animate-fade-in">
+      <div className="py-4 animate-fade-in">
         {/* Enhanced Header */}
         <div className="text-center mb-8">
           <div className="text-4xl mb-3 animate-bounce">👨🏻‍💻</div>
