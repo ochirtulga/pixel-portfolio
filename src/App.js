@@ -30,7 +30,7 @@ const App = () => {
       case 'home':
         return <HomePage onNavigate={handleSectionChange} />;
       case 'about':
-        return <AboutPage />;
+        return <AboutPage onNavigate={handleSectionChange} />;
       case 'projects':
         return <QuestsPage />;
       case 'skills':

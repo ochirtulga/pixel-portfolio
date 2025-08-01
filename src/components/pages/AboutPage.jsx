@@ -4,7 +4,7 @@ import { achievements } from '../../data/achievements';
 import { characterStats } from '../../data/characterStatistics';
 import { calculateCurrentLevel, CHARACTER_CONFIG, getCareerMilestones } from '../../data/characterConfig';
 
-const AboutPage = () => {
+const AboutPage = ({ onNavigate }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -250,10 +250,10 @@ const AboutPage = () => {
                   <span className="text-gray-400 font-mono text-xs">Ready to collaborate on your next adventure?</span>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <PixelButton className="w-full justify-center">
+                  <PixelButton className="w-full justify-center" onClick={() => onNavigate('projects')}>
                     ⚔️ VIEW QUESTS
                   </PixelButton>
-                  <PixelButton className="w-full justify-center">
+                  <PixelButton className="w-full justify-center" onClick={() => onNavigate('contact')}>
                     🤝 START COLLABORATION
                   </PixelButton>
                 </div>
@@ -409,10 +409,10 @@ const AboutPage = () => {
                     <span className="text-gray-400 font-mono text-sm">Ready to collaborate on your next adventure?</span>
                   </div>
                   <div className="flex justify-center gap-4">
-                    <PixelButton>
+                    <PixelButton onClick={() => onNavigate('projects')}>
                       ⚔️ VIEW QUESTS
                     </PixelButton>
-                    <PixelButton>
+                    <PixelButton onClick={() => onNavigate('contact')}>
                       🤝 START COLLABORATION
                     </PixelButton>
                   </div>
