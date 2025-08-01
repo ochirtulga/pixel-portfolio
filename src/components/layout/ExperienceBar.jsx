@@ -111,7 +111,7 @@ const ExperienceBar = () => {
                 </div>
                 
                 <div className="text-yellow-400 font-mono text-xs">
-                  {experienceData.daysUntilAnniversary} days to reach next level
+                  {experienceData.daysUntilAnniversary} exp to reach next level
                 </div>
               </div>
             </div>

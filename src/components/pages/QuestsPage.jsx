@@ -206,7 +206,7 @@ const QuestsPage = () => {
               <div className="text-center p-3 bg-gray-900 bg-opacity-50 rounded border border-gray-600">
                 <div className="text-2xl mb-1">🏆</div>
                 <h4 className="text-green-400 font-mono font-bold text-xs mb-1">XP EARNED</h4>
-                <p className="text-purple-400 font-mono text-lg font-bold">2,050</p>
+                <p className="text-purple-400 font-mono text-lg font-bold">5,700</p>
               </div>
             </div>
           </div>
@@ -372,7 +372,7 @@ const QuestsPage = () => {
         <div className="bg-gray-800 bg-opacity-80 p-4 pixel-border text-center">
           <div className="text-2xl mb-2">🏆</div>
           <h4 className="text-green-400 font-mono font-bold text-sm mb-2">XP EARNED</h4>
-          <p className="text-purple-400 font-mono text-xl font-bold">2,050</p>
+          <p className="text-purple-400 font-mono text-xl font-bold">5,700</p>
         </div>
       </div>
       {/* Inspirational Quote */}
