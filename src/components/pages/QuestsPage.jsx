@@ -66,7 +66,7 @@ const QuestsPage = () => {
         {/* Inspirational Quote */}
         <div className="mb-4 text-center">
           <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
-            “"In the realm of code, every bug is a boss battle, and every feature is a quest completed."” – Ochi
+            “In the realm of code, every bug is a boss battle, and every feature is a quest completed.” – Ochi
           </p>
         </div>
         {/* Mobile Quest Cards */}
@@ -258,7 +258,7 @@ const QuestsPage = () => {
       {/* Inspirational Quote */}
       <div className="mb-4 text-center">
         <p className="text-gray-400 font-mono italic text-sm max-w-xl mx-auto">
-          “"In the realm of code, every bug is a boss battle, and every feature is a quest completed."” – Ochi
+          “In the realm of code, every bug is a boss battle, and every feature is a quest completed.” – Ochi
         </p>
       </div>
       <div className="grid gap-6">
