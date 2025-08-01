@@ -1,0 +1,560 @@
+/* Navigation Component Styles */
+.navigation {
+    position: relative;
+    z-index: 10;
+    padding: 16px 24px;
+    border-bottom: 2px solid #4ade80;
+    background-color: rgba(17, 24, 39, 0.95);
+    min-height: 80px;
+  }
+  
+  .navigation__container {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+  
+  /* Mobile Layout */
+  .navigation__mobile {
+    display: block;
+  }
+
+  
+  .navigation__character-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: calc(100% - 120px); /* Reserve space for controls */
+  }
+  
+  .navigation__avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #374151;
+    border: 2px solid #4ade80;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+  }
+  
+  .navigation__avatar:hover {
+    transform: scale(1.1);
+  }
+  
+  .navigation__avatar--desktop {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .navigation__character-name {
+    color: #4ade80;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 0 0 10px #4ade80;
+  }
+  
+  .navigation__character-name--desktop {
+    font-size: 18px;
+  }
+  
+  .navigation__level-badge {
+    color: #eab308;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    background-color: #374151;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid #eab308;
+    margin-right: 4px;
+  }
+  
+  .navigation__level-badge--desktop {
+    padding: 4px 8px;
+  }
+  
+  .navigation__status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  .navigation__character-title {
+    color: #22c55e;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+  }
+  
+  .navigation__mobile-menu {
+    background-color: rgba(55, 65, 81, 0.95);
+    border: 2px solid #4ade80;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .navigation__mobile-menu--closed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding: 0 12px;
+  }
+  
+  .navigation__mobile-menu--open {
+    max-height: auto;
+    opacity: 1;
+  }
+  
+  .navigation__mobile-character {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #6b7280;
+  }
+  
+  .navigation__mobile-character-avatar {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  
+  .navigation__mobile-nav-grid {
+    display: grid;
+    gap: 8px;
+  }
+  
+  .navigation__mobile-nav-button {
+    border: 2px solid #4ade80;
+    background-color: #1f2937;
+    color: #4ade80;
+    padding: 12px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+  }
+  
+  .navigation__mobile-nav-button:hover {
+    background-color: #374151;
+  }
+  
+  .navigation__mobile-nav-button--active {
+    background-color: #4ade80;
+    color: #1f2937;
+  }
+  
+  .navigation__mobile-nav-icon {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  
+  .navigation__mobile-stats {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #6b7280;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+  }
+  
+  .navigation__mobile-stat {
+    text-align: center;
+  }
+  
+  .navigation__mobile-stat-value {
+    font-weight: bold;
+  }
+  
+  .navigation__mobile-stat-value--green {
+    color: #4ade80;
+  }
+  
+  .navigation__mobile-stat-value--blue {
+    color: #3b82f6;
+  }
+  
+  .navigation__mobile-stat-label {
+    color: #9ca3af;
+  }
+  
+  /* Desktop Layout */
+  .navigation__desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navigation__desktop-character {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .navigation__desktop-character-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .navigation__desktop-nav-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .navigation__desktop-nav-button {
+    border: 2px solid #4ade80;
+    background-color: #1f2937;
+    color: #4ade80;
+    padding: 8px 16px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .navigation__desktop-nav-button:hover {
+    background-color: #22c55e;
+    color: #1f2937;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #4ade80;
+  }
+  
+  .navigation__desktop-nav-button--active {
+    background-color: #4ade80;
+    color: #1f2937;
+    border-color: #22c55e;
+  }
+  
+  /* Responsive Utilities */
+  .navigation__hide-mobile {
+    display: flex;
+  }
+  
+  .navigation__hide-desktop {
+    display: none;
+  }
+  
+  /* Responsive Breakpoints */
+  @media (max-width: 767px) {
+    .navigation__hide-mobile {
+      display: none;
+    }
+    
+    .navigation__hide-desktop {
+      display: block;
+    }
+    
+    .navigation {
+      padding: 16px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navigation {
+      padding: 24px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .navigation__avatar,
+    .navigation__desktop-nav-button,
+    .navigation__mobile-menu {
+      transition: none;
+    }
+    
+    .navigation__status-dot {
+      animation: none;
+    }
+  }
+  
+  /* Focus states for accessibility */
+  .navigation__menu-button:focus,
+  .navigation__mobile-nav-button:focus,
+  .navigation__desktop-nav-button:focus {
+    outline: 2px solid #4ade80;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .navigation {
+      border-bottom-color: #00ff00;
+      background-color: #000000;
+    }
+    
+    .navigation__character-name,
+    .navigation__menu-button,
+    .navigation__mobile-nav-button,
+    .navigation__desktop-nav-button {
+      color: #00ff00;
+      border-color: #00ff00;
+    }
+  }
+
+  /* Add these new styles to your existing Navigation.css file */
+
+/* Mobile Control Buttons */
+  .navigation__mobile-setting-toggle {
+    padding: 4px 8px;
+    border: 1px solid #6b7280;
+    background-color: #374151;
+    color: #9ca3af;
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    min-width: 28px;
+    margin-left: 8px; /* Add space from label */
+  }
+  
+  .navigation__mobile-setting-toggle:hover {
+    background-color: #4b5563;
+  }
+  
+  .navigation__mobile-setting-toggle--on {
+    background-color: #4ade80;
+    color: #1f2937;
+    border-color: #22c55e;
+  }
+  
+  .navigation__character-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Allow text truncation if needed */
+  }
+  
+  /* Accessibility improvements */
+  .navigation__control-button:focus,
+  .navigation__mobile-setting-toggle:focus {
+    outline: 2px solid #4ade80;
+    outline-offset: 2px;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* Mobile Control Buttons */
+.navigation__audio-toggle {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile Settings Panel */
+.navigation__mobile-settings {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #6b7280;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.navigation__mobile-settings-title {
+  color: #4ade80;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.navigation__mobile-settings-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.navigation__mobile-setting-audio {
+  display: flex;
+  align-items: center;
+  margin-left: 8px; /* Add space from label */
+  flex-shrink: 0; /* Prevent audio button from shrinking */
+}
+
+.navigation__mobile-audio-toggle {
+  position: static !important;
+  width: 28px !important;
+  height: 20px !important;
+  font-size: 10px !important;
+  padding: 2px 4px !important;
+  border-radius: 2px !important;
+  margin: 0 !important; /* Remove any default margins */
+}
+
+/* Adjust menu button to match other controls */
+.navigation__menu-button {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #4ade80;
+  background-color: #1f2937;
+  color: #4ade80;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+  .navigation__mobile-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: rgba(55, 65, 81, 0.5);
+    border: 1px solid #6b7280;
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  
+  .navigation__mobile-setting-label {
+    color: #9ca3af;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  /* Add these new styles to your existing Navigation.css file */
+  /* Mobile Control Buttons */
+  .navigation__mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .navigation__control-button {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #4ade80;
+    background-color: #1f2937;
+    color: #4ade80;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  
+  .navigation__control-button:hover {
+    background-color: #374151;
+    transform: scale(1.05);
+  }
+  
+  .navigation__control-button--active {
+    background-color: #4ade80;
+    color: #1f2937;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+  }
+  
+  /* Audio button in navigation bar - Override all styles to match other buttons */
+  .navigation__audio-button {
+    position: static !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 2px solid #4ade80 !important;
+    background-color: #1f2937 !important;
+    color: #4ade80 !important;
+    font-family: 'Courier New', monospace !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-transform: uppercase !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  .navigation__audio-button:hover {
+    background-color: #374151 !important;
+    transform: scale(1.05) !important;
+    color: #4ade80 !important;
+    border-color: #4ade80 !important;
+  }
+  
+  /* Audio button active state (when audio is enabled) */
+  .navigation__audio-button.pixel-button--active,
+  .navigation__audio-button[style*="background-color: rgb(74, 222, 128)"] {
+    background-color: #4ade80 !important;
+    color: #1f2937 !important;
+    border-color: #22c55e !important;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3) !important;
+  }
+  
+  .navigation__audio-button.pixel-button--active:hover,
+  .navigation__audio-button[style*="background-color: rgb(74, 222, 128)"]:hover {
+    background-color: #22c55e !important;
+    color: #1f2937 !important;
+    transform: scale(1.05) !important;
+  }
+  
+  .navigation__menu-button:hover {
+    background-color: #374151;
+    transform: scale(1.05);
+  }
+  
+  .navigation__menu-button--active {
+    background-color: #4ade80;
+    color: #1f2937;
+  }
+  
+  /* Ensure mobile header has proper spacing */
+  .navigation__mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    min-height: 40px;
+  }

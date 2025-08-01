@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HomePage, AboutPage, QuestsPage, SkillsPage, ContactPage } from './components/pages';
 import { Navigation, Background, HealthManaDisplay, ExperienceBar } from './components/layout';
-import { AudioToggleButton } from './components/common';
 import '../src/styles/globals.css';
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState('home');
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleSectionChange = (sectionId) => {
     if (sectionId !== currentSection) {
@@ -35,17 +47,20 @@ const App = () => {
       {/* Animated Background */}
       <Background />
 
-      {/* Audio Toggle Button */}
-      <AudioToggleButton />
-
-      {/* Navigation */}
+      {/* Navigation - Audio button is now integrated into Navigation component */}
       <Navigation 
         currentSection={currentSection} 
         onSectionChange={handleSectionChange} 
       />
 
-      {/* Main Content */}
-      <main className="relative z-10 max-w-6xl mx-auto p-6" style={{ paddingBottom: '80px' }}>
+      {/* Main Content - Mobile padding adjustments */}
+      <main 
+        className="relative z-10 max-w-6xl mx-auto p-4 md:p-6" 
+        style={{ 
+          paddingBottom: isMobile ? '95px' : '80px',
+          paddingTop: isMobile ? '10px' : '0' // Account for mobile health bars
+        }}
+      >
         {renderCurrentPage()}
       </main>
 

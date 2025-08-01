@@ -3,17 +3,31 @@ import React, { useState, useEffect } from 'react';
 const Background = () => {
   const [stars, setStars] = useState([]);
   const [clouds, setClouds] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Generate animated background elements
+  // Check if mobile for performance optimization
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Generate background elements with mobile optimization
   useEffect(() => {
     const generateStars = () => {
+      const starCount = isMobile ? 25 : 50; // Reduce stars on mobile
       const newStars = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < starCount; i++) {
         newStars.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 3 + 1,
+          size: Math.random() * (isMobile ? 2 : 3) + 1,
           twinkle: Math.random() * 2 + 1
         });
       }
@@ -21,14 +35,15 @@ const Background = () => {
     };
 
     const generateClouds = () => {
+      const cloudCount = isMobile ? 4 : 8; // Reduce clouds on mobile
       const newClouds = [];
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < cloudCount; i++) {
         newClouds.push({
           id: i,
           x: Math.random() * 120 - 20,
           y: Math.random() * 40 + 10,
           size: Math.random() * 0.5 + 0.5,
-          speed: Math.random() * 0.3 + 0.1
+          speed: Math.random() * (isMobile ? 0.2 : 0.3) + 0.1 // Slower on mobile
         });
       }
       setClouds(newClouds);
@@ -36,9 +51,9 @@ const Background = () => {
 
     generateStars();
     generateClouds();
-  }, []);
+  }, [isMobile]);
 
-  // Animate clouds
+  // Animate clouds with mobile optimization
   useEffect(() => {
     const interval = setInterval(() => {
       setClouds(prevClouds => 
@@ -47,10 +62,10 @@ const Background = () => {
           x: cloud.x >= 120 ? -20 : cloud.x + cloud.speed
         }))
       );
-    }, 100);
+    }, isMobile ? 200 : 100); // Slower animation interval on mobile
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="absolute inset-0">
@@ -58,13 +73,14 @@ const Background = () => {
       {stars.map(star => (
         <div
           key={star.id}
-          className="absolute bg-white rounded-full opacity-80 twinkle"
+          className={`absolute bg-white rounded-full opacity-80 ${isMobile ? '' : 'twinkle'}`}
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
             width: `${star.size}px`,
             height: `${star.size}px`,
-            '--duration': `${star.twinkle}s`
+            '--duration': `${star.twinkle}s`,
+            animation: isMobile ? 'none' : `twinkle ${star.twinkle}s infinite alternate`
           }}
         />
       ))}
@@ -78,15 +94,20 @@ const Background = () => {
             left: `${cloud.x}%`,
             top: `${cloud.y}%`,
             transform: `scale(${cloud.size})`,
-            fontSize: '24px'
+            fontSize: isMobile ? '18px' : '24px'
           }}
         >
           ☁️
         </div>
       ))}
 
-      {/* Pixel Grid Overlay */}
-      <div className="absolute inset-0 pixel-grid" />
+      {/* Pixel Grid Overlay - Lighter on mobile */}
+      <div 
+        className="absolute inset-0 pixel-grid" 
+        style={{
+          opacity: isMobile ? 0.02 : 0.05
+        }}
+      />
     </div>
   );
 };

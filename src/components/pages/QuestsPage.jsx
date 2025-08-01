@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PixelButton } from '../common';
 import { enhancedQuests } from '../../data/projects';
 
 const QuestsPage = () => {
   const [selectedQuest, setSelectedQuest] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedQuest, setExpandedQuest] = useState(null);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
@@ -39,6 +53,191 @@ const QuestsPage = () => {
     }
   };
 
+  const toggleQuestExpansion = (questId) => {
+    setExpandedQuest(expandedQuest === questId ? null : questId);
+  };
+
+  if (isMobile) {
+    return (
+      <div className="py-4 animate-fade-in">
+        <h2 className="text-2xl font-bold text-green-400 font-mono mb-6 pixel-glow text-center">
+          ⚔️ QUEST LOG
+        </h2>
+        
+        {/* Mobile Quest Cards */}
+        <div className="space-y-4 px-2">
+          {enhancedQuests.map((quest) => (
+            <div key={quest.id} className="bg-gray-800 bg-opacity-90 rounded-lg border-2 border-green-400">
+              {/* Mobile Quest Header - Always Visible */}
+              <div 
+                className="p-4 cursor-pointer"
+                onClick={() => toggleQuestExpansion(quest.id)}
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-lg font-bold text-green-400 font-mono flex-1 mr-2">
+                    {quest.name}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className={`px-2 py-1 text-xs font-mono font-bold rounded ${getStatusColor(quest.status)}`}>
+                      {quest.status}
+                    </span>
+                    <span className="text-green-400 font-bold text-lg">
+                      {expandedQuest === quest.id ? '−' : '+'}
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Difficulty Badge */}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`
+                    px-2 py-1 text-xs font-mono font-bold border-2 rounded
+                    ${getDifficultyColor(quest.difficulty)} 
+                    bg-opacity-20 border-opacity-80 flex items-center gap-1
+                  `}>
+                    <span>{getDifficultyIcon(quest.difficulty)}</span>
+                    <span>{quest.difficulty}</span>
+                  </div>
+                </div>
+                
+                {/* Tech Stack - Always Visible */}
+                <p className="text-gray-400 font-mono text-xs mb-2">{quest.tech}</p>
+                
+                {/* Tap to expand hint */}
+                <div className="text-xs text-gray-500 font-mono text-center">
+                  {expandedQuest === quest.id ? 'Tap to collapse' : 'Tap to view details'}
+                </div>
+              </div>
+              
+              {/* Mobile Expanded Content */}
+              {expandedQuest === quest.id && (
+                <div className="border-t-2 border-gray-700 p-4 space-y-3">
+                  {/* Quest Metadata */}
+                  <div className="grid grid-cols-1 gap-2 text-xs font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">📍 LOCATION:</span>
+                      <span className="text-yellow-400">{quest.location}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">⏱️ DURATION:</span>
+                      <span className="text-blue-400">{quest.duration}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">👤 QUEST GIVER:</span>
+                      <span className="text-purple-400">{quest.questGiver}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Quest Lore */}
+                  <div>
+                    <h4 className="text-green-400 font-mono font-bold text-sm mb-2">QUEST LORE:</h4>
+                    <p className="text-gray-300 font-mono text-xs italic leading-relaxed">{quest.lore}</p>
+                  </div>
+                  
+                  {/* Achievement */}
+                  <div>
+                    <h4 className="text-green-400 font-mono font-bold text-sm mb-2">ACHIEVEMENT UNLOCKED:</h4>
+                    <p className="text-gray-300 font-mono text-xs leading-relaxed">{quest.achievement}</p>
+                  </div>
+                  
+                  {/* Rewards */}
+                  <div>
+                    <h4 className="text-green-400 font-mono font-bold text-sm mb-2">QUEST REWARDS:</h4>
+                    <div className="bg-gray-900 bg-opacity-50 p-2 rounded border border-yellow-600">
+                      <p className="text-yellow-400 font-mono text-xs">{quest.reward}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Action Buttons */}
+                  <div className="flex flex-col gap-2 pt-2">
+                    <PixelButton className="text-xs py-2 w-full justify-center">
+                      📋 VIEW CODE
+                    </PixelButton>
+                    <div className="grid grid-cols-2 gap-2">
+                      <PixelButton className="text-xs py-2 justify-center">
+                        🌐 DEMO
+                      </PixelButton>
+                      {quest.status === 'COMPLETE' && (
+                        <PixelButton className="text-xs py-2 justify-center">
+                          🏆 CERT
+                        </PixelButton>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        {/* Mobile Quest Statistics */}
+        <div className="mt-6 px-2">
+          <div className="bg-gray-800 bg-opacity-90 rounded-lg border-2 border-green-400 p-4">
+            <h3 className="text-green-400 font-mono font-bold text-lg mb-4 text-center">
+              📊 QUEST STATISTICS
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="text-center p-3 bg-gray-900 bg-opacity-50 rounded border border-gray-600">
+                <div className="text-2xl mb-1">⚔️</div>
+                <h4 className="text-green-400 font-mono font-bold text-xs mb-1">TOTAL</h4>
+                <p className="text-white font-mono text-lg font-bold">{enhancedQuests.length}</p>
+              </div>
+              
+              <div className="text-center p-3 bg-gray-900 bg-opacity-50 rounded border border-gray-600">
+                <div className="text-2xl mb-1">✅</div>
+                <h4 className="text-green-400 font-mono font-bold text-xs mb-1">COMPLETE</h4>
+                <p className="text-green-400 font-mono text-lg font-bold">
+                  {enhancedQuests.filter(q => q.status === 'COMPLETE').length}
+                </p>
+              </div>
+              
+              <div className="text-center p-3 bg-gray-900 bg-opacity-50 rounded border border-gray-600">
+                <div className="text-2xl mb-1">⚡</div>
+                <h4 className="text-green-400 font-mono font-bold text-xs mb-1">PROGRESS</h4>
+                <p className="text-yellow-400 font-mono text-lg font-bold">
+                  {enhancedQuests.filter(q => q.status === 'IN PROGRESS').length}
+                </p>
+              </div>
+              
+              <div className="text-center p-3 bg-gray-900 bg-opacity-50 rounded border border-gray-600">
+                <div className="text-2xl mb-1">🏆</div>
+                <h4 className="text-green-400 font-mono font-bold text-xs mb-1">XP EARNED</h4>
+                <p className="text-purple-400 font-mono text-lg font-bold">2,050</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Difficulty Legend */}
+        <div className="mt-4 px-2">
+          <div className="bg-gray-800 bg-opacity-90 rounded-lg border-2 border-green-400 p-4">
+            <h4 className="text-green-400 font-mono font-bold text-sm mb-3 text-center">
+              DIFFICULTY LEGEND
+            </h4>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="flex items-center gap-2">
+                <span>🟢</span>
+                <span className="text-green-300 font-mono font-bold">EASY</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🔵</span>
+                <span className="text-blue-300 font-mono font-bold">NORMAL</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🟣</span>
+                <span className="text-purple-300 font-mono font-bold">HARD</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>🟡</span>
+                <span className="text-yellow-300 font-mono font-bold">EXTREME</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop: Original layout
   return (
     <div className="py-4 animate-fade-in">
       <h2 className="text-4xl font-bold text-green-400 font-mono mb-8 pixel-glow text-center">
@@ -130,7 +329,7 @@ const QuestsPage = () => {
       </div>
       
       {/* Quest Statistics */}
-      <div className="mt-8 grid md:grid-cols-4 gap-4">
+      <div className="mt-8 mb-7 grid md:grid-cols-4 gap-4">
         <div className="bg-gray-800 bg-opacity-80 p-4 pixel-border text-center">
           <div className="text-2xl mb-2">⚔️</div>
           <h4 className="text-green-400 font-mono font-bold text-sm mb-2">TOTAL QUESTS</h4>
